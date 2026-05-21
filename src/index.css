@@ -1,0 +1,56 @@
+:root {
+  --page: #f8f4ee;
+  --surface: #fffaf4;
+  --ink: #201815;
+  --muted: #6e5c50;
+  --accent: #9e3d37;
+  --accent-soft: #ce694d;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(206, 105, 77, 0.1), transparent 28%),
+    linear-gradient(180deg, #f6f0e8, #f8f4ee);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}

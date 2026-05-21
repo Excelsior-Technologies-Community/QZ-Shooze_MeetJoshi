@@ -1,0 +1,49 @@
+.store-banner{
+    background: linear-gradient(to right, #6a5acd, #c0392b);
+    padding: 20px 20px;
+}
+.store-container{
+    max-width:1200px;
+    margin:auto;
+}
+.store-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+.store-title{
+    color:white;
+    font-size:32px;
+    weight:500;
+    margin:0;
+}
+.store-btn{
+    background-color: #3f51b5;
+    color: white;
+    padding: 16px 40px;
+    text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.store-btn:hover {
+  background-color: #2c3e9f;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .store-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .store-title {
+    font-size: 24px;
+  }
+
+  .store-btn {
+    width: fit-content;
+  }
+}

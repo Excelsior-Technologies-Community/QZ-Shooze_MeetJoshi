@@ -1,0 +1,147 @@
+.advanced-content-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+@media (max-width: 750px) {
+  .advanced-content-section {
+    padding: 40px 0;
+  }
+}
+
+.advanced-content-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.advanced-content-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.advanced-content-copy {
+  max-width: 550px;
+}
+
+.advanced-content-copy .subtop {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.advanced-content-copy h2 {
+  font-size: 48px;
+  line-height: 1.05;
+  margin: 0 0 24px;
+}
+
+.advanced-content-copy p {
+  color: #606060;
+  line-height: 1.8;
+  margin: 0 0 18px;
+}
+
+.btn-theme-advanced {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #b63f52;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.icon-arrow {
+  width: 10px;
+  height: 8px;
+}
+
+.advanced-content-media {
+  display: flex;
+  justify-content: center;
+}
+
+.advanced-content-media-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+}
+
+.media-large,
+.media-small {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.media-large img,
+.media-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-large {
+  min-height: 340px;
+}
+
+.media-small {
+  min-height: 400px;
+}
+
+.video-play-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.video-play-button span {
+  display: block;
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+@media (max-width: 992px) {
+  .advanced-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advanced-content-media-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .media-small {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .advanced-content-copy h2 {
+    font-size: 32px;
+  }
+
+  .advanced-content-copy p {
+    font-size: 15px;
+  }
+}
