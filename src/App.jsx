@@ -7,7 +7,8 @@ import ProductListSmall from './components/ProductListSmall'
 import AdvancedContent from './components/AdvancedContent'
 import StoreBanner from './components/StoreBanner'
 import BrandSection from './components/BrandSection'
-
+import BlogSection from './components/BlogSection'
+import FooterSection from './components/FooterSection'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -590,6 +591,10 @@ function App() {
         <StoreBanner />
 
         <BrandSection />
+
+        <BlogSection />
+
+        <FooterSection />
       </main>
     </div>
   )
