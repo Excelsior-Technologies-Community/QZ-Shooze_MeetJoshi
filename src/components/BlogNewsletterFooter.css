@@ -39,3 +39,24 @@
   .bnf-newsletter-inner{flex-direction:column;align-items:center}
   .bnf-columns{grid-template-columns:repeat(2,1fr)}
 }
+
+@media(max-width:640px){
+  .bnf-newsletter-inner,
+  .bnf-footer-inner {
+    padding: 0 16px;
+  }
+
+  .bnf-news-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bnf-news-form input,
+  .bnf-news-form button {
+    width: 100%;
+  }
+
+  .bnf-columns {
+    grid-template-columns: 1fr;
+  }
+}

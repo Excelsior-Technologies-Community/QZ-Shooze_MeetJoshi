@@ -104,3 +104,33 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .product-list-columns {
+    gap: 18px;
+  }
+
+  .product-list-item {
+    padding: 14px 0;
+  }
+
+  .product-list-link {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  .product-list-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list-small-section {
+    padding: 32px 0 24px 0;
+  }
+
+  .product-list-copy h4 {
+    font-size: 16px;
+  }
+}

@@ -320,6 +320,7 @@ function IconArrow() {
 function App() {
   const [activeSlide, setActiveSlide] = useState(2)
   const [activeProductTab, setActiveProductTab] = useState('Featured')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -364,7 +365,13 @@ function App() {
         </div>
 
         <div className="main-header">
-          <button className="menu-toggle" type="button" aria-label="Open navigation">
+          <button
+            className={`menu-toggle ${isMenuOpen ? 'is-active' : ''}`}
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
             <span />
             <span />
             <span />
@@ -374,12 +381,13 @@ function App() {
             <img src={logoUrl} alt="Qx Shooz" />
           </a>
 
-          <nav className="main-nav" aria-label="Primary">
+          <nav className={`main-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href="/"
                 className={item.active ? 'is-active' : ''}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.badge ? <span className="nav-badge">{item.badge}</span> : null}
                 <span>{item.label}</span>
@@ -405,6 +413,12 @@ function App() {
             </a>
           </div>
         </div>
+
+        <div
+          className={`nav-backdrop ${isMenuOpen ? 'is-visible' : ''}`}
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
       </header>
 
       <main>

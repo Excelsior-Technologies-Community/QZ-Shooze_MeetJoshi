@@ -96,3 +96,13 @@
     height: 100px;
   }
 }
+
+@media (max-width: 480px) {
+  .brand-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-card {
+    height: 90px;
+  }
+}

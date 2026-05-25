@@ -200,7 +200,11 @@
   }
 
   .newsletter-image{
-    height:350px;
+    height:auto;
+  }
+
+  .newsletter-image img{
+    height:auto;
   }
 }
 
