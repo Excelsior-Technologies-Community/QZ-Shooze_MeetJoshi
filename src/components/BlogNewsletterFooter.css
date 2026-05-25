@@ -1,0 +1,41 @@
+.bnf-root{font-family:inherit;color:#111}
+.bnf-container{max-width:1120px;margin:0 auto;padding:48px 16px}
+.bnf-header .bnf-subtop{font-size:12px;color:#777;margin-bottom:8px}
+.bnf-title{font-size:40px;margin:0 0 12px}
+.bnf-desc{color:#666;max-width:560px}
+.bnf-grid{display:flex;gap:24px;margin-top:24px}
+.bnf-first{flex:1;position:relative}
+.bnf-first img{width:100%;height:360px;object-fit:cover;border-radius:2px}
+.bnf-mask{position:absolute;left:0;right:0;bottom:0;top:0;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.bnf-first-content{position:absolute;left:24px;bottom:24px;color:#fff}
+.bnf-list{width:360px;display:flex;flex-direction:column;gap:16px}
+.bnf-list-item{display:flex;gap:12px;align-items:center}
+.bnf-list-item img{width:100px;height:70px;object-fit:cover;border-radius:2px}
+.bnf-list-content h5{margin:0;font-size:16px}
+.bnf-list-content time{display:block;color:#888;font-size:13px}
+
+/* Newsletter */
+.bnf-newsletter{background:#ae3f4f;padding:36px 0}
+.bnf-newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bnf-news-text h3{color:#fff;font-size:38px;margin:0}
+.bnf-news-form{display:flex;gap:8px}
+.bnf-news-form input{padding:12px 16px;border:0;border-radius:2px;min-width:240px}
+.bnf-news-form button{background:#000;color:#fff;padding:12px 18px;border:0}
+
+/* Footer */
+.bnf-footer{background:#f2f0ea;padding:48px 0}
+.bnf-footer-inner{max-width:1120px;margin:0 auto;padding:0 16px}
+.bnf-columns{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.bnf-footer h4{font-size:14px;margin-bottom:12px}
+.bnf-footer ul{list-style:none;padding:0;margin:0}
+.bnf-footer a{color:#333;text-decoration:none}
+.bnf-footer-center{text-align:center}
+.bnf-footer-center img{width:140px;display:block;margin:0 auto 12px}
+.bnf-copyright{text-align:center;padding-top:24px;color:#666}
+
+@media(max-width:900px){
+  .bnf-grid{flex-direction:column}
+  .bnf-list{width:100%}
+  .bnf-newsletter-inner{flex-direction:column;align-items:center}
+  .bnf-columns{grid-template-columns:repeat(2,1fr)}
+}
