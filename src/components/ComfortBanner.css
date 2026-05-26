@@ -1,0 +1,191 @@
+.comfort-banner-section {
+  position: relative;
+  min-height: 462px;
+  padding: 0;
+  background-position: 32% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.comfort-banner-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.comfort-banner-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1280px, calc(100% - 32px));
+  min-height: 462px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.comfort-banner-copy {
+  width: 100%;
+  max-width: 618px;
+  display: grid;
+  justify-items: end;
+  text-align: right;
+  color: #020202;
+  padding-right: 98px;
+}
+
+.comfort-banner-copy p {
+  margin: 0 0 16px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.comfort-banner-copy h2 {
+  margin: 0 0 18px;
+  font-size: 33px;
+  line-height: 1.42;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.comfort-banner-copy > span {
+  display: block;
+  max-width: 595px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.comfort-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 129px;
+  height: 36px;
+  padding: 0 22px;
+  background: #c74759;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.comfort-banner-button:hover {
+  background: #b03d4e;
+  transform: translateY(-1px);
+}
+
+.comfort-banner-button svg {
+  width: 10px;
+  height: 8px;
+  fill: currentColor;
+}
+
+.comfort-banner-button span {
+  display: inline;
+  max-width: none;
+  margin: 0;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.compare-tab--banner {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 8px;
+}
+
+@media (max-width: 1100px) {
+  .comfort-banner-inner {
+    min-height: 420px;
+  }
+
+  .comfort-banner-copy {
+    max-width: 560px;
+    padding-right: 54px;
+  }
+
+  .comfort-banner-copy h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .comfort-banner-section {
+    min-height: 390px;
+    background-position: 24% center;
+  }
+
+  .comfort-banner-inner {
+    min-height: 0;
+    justify-content: center;
+    padding: 42px 0;
+  }
+
+  .comfort-banner-copy {
+    justify-items: center;
+    text-align: center;
+    padding-right: 0;
+    max-width: 620px;
+  }
+
+  .comfort-banner-copy h2 {
+    font-size: 28px;
+    line-height: 1.32;
+  }
+}
+
+@media (max-width: 640px) {
+  .comfort-banner-section {
+    min-height: 0;
+    background-position: 22% center;
+  }
+
+  .comfort-banner-inner {
+    width: min(100% - 18px, 1110px);
+    padding: 38px 0;
+  }
+
+  .comfort-banner-copy p {
+    margin-bottom: 14px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .comfort-banner-copy h2 {
+    margin-bottom: 18px;
+    font-size: 24px;
+    line-height: 1.28;
+  }
+
+  .comfort-banner-copy span {
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .comfort-banner-button {
+    min-width: 124px;
+    height: 36px;
+    padding: 0 20px;
+    font-size: 11px;
+  }
+
+  .compare-tab--banner {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .comfort-banner-inner {
+    width: min(100% - 16px, 1110px);
+  }
+}
