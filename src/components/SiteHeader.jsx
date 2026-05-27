@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './SiteHeader.css'
-
+import { Link } from 'react-router-dom'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -10,12 +10,12 @@ const logoUrl =
   'https://qx-shooz.myshopify.com/cdn/shop/files/logo.png?v=1731409697&width=280'
 
 const navItems = [
-  { label: 'Home', active: true },
-  { label: 'Shop', hasDropdown: true },
-  { label: 'Product', hasDropdown: true },
-  { label: 'Blog', hasDropdown: true },
-  { label: 'Pages', hasDropdown: true },
-  { label: 'Buy Now', badge: 'Sale' },
+  { label: 'Home', path: '/', active: true },
+  { label: 'Shop', path: '/shops', hasDropdown: true },
+  { label: 'Product', path: '/products', hasDropdown: true },
+  { label: 'Blog', path: '/blog', hasDropdown: true },
+  { label: 'Pages', path: '/pages', hasDropdown: true },
+  { label: 'Buy Now', path: '/buy-now', badge: 'Sale' },
 ]
 
 function IconChevron() {
@@ -93,7 +93,7 @@ function SiteHeader() {
             promoMessages.map((message) => (
               <div className="promo-item" key={`${message}-${repeatIndex}`}>
                 <span>{message}</span>
-                <a href="/">Dismiss</a>
+                <Link to="/">Dismiss</Link>
               </div>
             )),
           )}
@@ -103,18 +103,18 @@ function SiteHeader() {
       <div className="utility-bar">
         <p>One Day Delivery Available</p>
         <div className="utility-links">
-          <a href="/">Login</a>
+          <Link to="/">Login</Link>
           <span>/</span>
-          <a href="/">Register</a>
-          <a href="/" aria-label="Facebook">
+          <Link to="/">Register</Link>
+          <Link to="/" aria-label="Facebook">
             <IconFacebook />
-          </a>
-          <a href="/" aria-label="Twitter">
+          </Link>
+          <Link to="/" aria-label="Twitter">
             <IconTwitter />
-          </a>
-          <a href="/" aria-label="Instagram">
+          </Link>
+          <Link to="/" aria-label="Instagram">
             <IconInstagram />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -131,40 +131,40 @@ function SiteHeader() {
           <span />
         </button>
 
-        <a className="brand-mark" href="/" aria-label="Shooz home">
+        <Link className="brand-mark" to="/" aria-label="Shooz home">
           <img src={logoUrl} alt="Qx Shooz" />
-        </a>
+        </Link>
 
         <nav className={`main-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href="/"
+              to={item.path}
               className={item.active ? 'is-active' : ''}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.badge ? <span className="nav-badge">{item.badge}</span> : null}
               <span>{item.label}</span>
               {item.hasDropdown ? <IconChevron /> : null}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="header-actions">
-          <button type="button" aria-label="Search">
+          <Link to="/" aria-label="Search">
             <IconSearch />
-          </button>
-          <button type="button" aria-label="Account">
+          </Link>
+          <Link to="/account" aria-label="Account">
             <IconUser />
-          </button>
-          <button type="button" aria-label="Wishlist" className="heart-button">
+          </Link>
+          <Link to="/wishlist" aria-label="Wishlist" className="heart-button">
             <IconHeart />
             <span className="action-count">2</span>
-          </button>
-          <a href="/" className="cart-link" aria-label="Cart">
+          </Link>
+          <Link to="/cart" className="cart-link" aria-label="Cart">
             <IconBag />
             <span>(1)</span>
-          </a>
+          </Link>
         </div>
       </div>
 

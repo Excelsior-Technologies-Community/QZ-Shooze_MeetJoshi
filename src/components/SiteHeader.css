@@ -1,6 +1,7 @@
 .site-header {
   background: #fff;
   border-bottom: 1px solid #ece7e3;
+  width: 100%;
 }
 
 .promo-bar {
@@ -13,7 +14,7 @@
 
 .utility-bar,
 .main-header {
-  width: min(1280px, calc(100% - 40px));
+  width: min(1280px, calc(100% - 10px));
   margin: 0 auto;
 }
 

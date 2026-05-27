@@ -12,16 +12,16 @@ const collections = [
   },
   {
     id: 2,
-    title: 'Luxury Leather Shoes',
-    href: '/collections/luxury-leather-shoes',
-    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-6.png?v=1731658012&width=800',
+    title: 'Boots for Every Occasion',
+    href: '/collections/boots-for-every-occasion',
+    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-3.png?v=1731658020&width=800',
     count: 8,
   },
   {
     id: 3,
-    title: 'Sustainable Footwear',
-    href: '/collections/sustainable-footwear',
-    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-1.png?v=1731657959&width=800',
+    title: 'Luxury Leather Shoes',
+    href: '/collections/luxury-leather-shoes',
+    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-6.png?v=1731658012&width=800',
     count: 8,
   },
   {
@@ -31,11 +31,18 @@ const collections = [
     image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-2.png?v=1731657969&width=800',
     count: 8,
   },
+  {
+    id: 5,
+    title: "Sneakerhead's Haven",
+    href: '/collections/frontpage',
+    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-4.png?v=1731658028&width=800',
+    count: 10,
+  },
 ]
 
 export default function FeaturedCollections() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const slidesPerView = 4
+  const slidesPerView = 5
   const maxSlide = Math.max(0, collections.length - slidesPerView)
 
   const handlePrev = () => {

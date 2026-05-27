@@ -66,8 +66,8 @@
 
 .collectionlist-slider {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
   margin-bottom: 40px;
   list-style: none;
   padding: 0;
