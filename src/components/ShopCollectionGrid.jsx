@@ -1,4 +1,4 @@
-import "./CollectionGrid.css";
+import "./ShopCollectionGrid.css";
 
 const collections = [
   {
@@ -31,7 +31,7 @@ const collections = [
 export default function CollectionGrid() {
   return (
     <section className="collection-section">
-      <div className="collection-grid">
+      <div className="shop-collection-grid">
         {collections.map((item, index) => (
           <div className="collection-card" key={index}>
             <img src={item.image} alt={item.title} />

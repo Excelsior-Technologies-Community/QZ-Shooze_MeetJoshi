@@ -1,4 +1,4 @@
-import './CollectionGrid.css'
+import "./CollectionGrid.css"
 
 const banners = [
   {

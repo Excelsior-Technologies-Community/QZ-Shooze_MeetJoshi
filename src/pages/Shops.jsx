@@ -8,7 +8,7 @@ function Shops() {
     <div className="storefront-shell">
         <SiteHeader />
         <ShopPageBanner />
-        {/* <ShopCollectionGrid /> */}
+        <ShopCollectionGrid />
         <FooterSection />
     </div>
   )

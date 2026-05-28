@@ -2,8 +2,8 @@ import './CollectionCard.css'
 
 export default function CollectionCard({ image, title, href, count }) {
   return (
-    <div className="collection-card-1 position-relative text-center">
-      <div className="collection-card__image overflow-hidden position-relative">
+    <article className="collection-card-1">
+      <div className="collection-card__image">
         <a className="hv-image-saturate image-content__image-wrapper auto" href={href}>
           <img
             className="transition"
@@ -16,13 +16,13 @@ export default function CollectionCard({ image, title, href, count }) {
         </a>
       </div>
       <div className="collection-card-1-infor">
-        <h4 className="m-0 h4">
+        <h3>
           <a href={href}>
-            {title}
-            <p className="collection-count">{count}</p>
+            <span>{title}</span>
+            <span className="collection-count">{count}</span>
           </a>
-        </h4>
+        </h3>
       </div>
-    </div>
+    </article>
   )
 }

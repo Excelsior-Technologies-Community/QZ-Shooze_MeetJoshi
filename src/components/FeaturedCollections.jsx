@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import CollectionCard from './CollectionCard'
 import './FeaturedCollections.css'
 
@@ -12,16 +11,16 @@ const collections = [
   },
   {
     id: 2,
-    title: 'Boots for Every Occasion',
-    href: '/collections/boots-for-every-occasion',
-    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-3.png?v=1731658020&width=800',
+    title: 'Luxury Leather Shoes',
+    href: '/collections/luxury-leather-shoes',
+    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-6.png?v=1731658012&width=800',
     count: 8,
   },
   {
     id: 3,
-    title: 'Luxury Leather Shoes',
-    href: '/collections/luxury-leather-shoes',
-    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-6.png?v=1731658012&width=800',
+    title: 'Sustainable Footwear',
+    href: '/collections/sustainable-footwear',
+    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-1.png?v=1731657959&width=800',
     count: 8,
   },
   {
@@ -31,81 +30,35 @@ const collections = [
     image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-2.png?v=1731657969&width=800',
     count: 8,
   },
-  {
-    id: 5,
-    title: "Sneakerhead's Haven",
-    href: '/collections/frontpage',
-    image: 'https://qx-shooz.myshopify.com/cdn/shop/collections/col-4.png?v=1731658028&width=800',
-    count: 10,
-  },
 ]
 
 export default function FeaturedCollections() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const slidesPerView = 5
-  const maxSlide = Math.max(0, collections.length - slidesPerView)
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => Math.max(0, prev - slidesPerView))
-  }
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => Math.min(maxSlide, prev + slidesPerView))
-  }
-
-  const visibleCollections = collections.slice(currentSlide, currentSlide + slidesPerView)
-
   return (
     <section className="featured-collections-section">
-      <div className="container">
-        <div className="section-block">
-          {/* Section Header */}
-          <div className="section-header text-center">
-            <div className="subtop text-top mb-2">Stylish and comfortable for every season</div>
-            <h3 className="section-title-1 mb-2">
+      <div className="featured-collections__container">
+        <div className="featured-collections__block">
+          <header className="featured-collections__header">
+            <p className="featured-collections__eyebrow">Stylish and comfortable for every season</p>
+            <h2 className="featured-collections__title">
               <span>Boots & Booties</span>
-            </h3>
-            <div className="des-header txt-body-70 mb-5">
+            </h2>
+            <p className="featured-collections__description">
               Check out our collection of the top New Products that encourage conversion.
-            </div>
-          </div>
+            </p>
+          </header>
 
-          {/* Collections Grid */}
-          <div className="collectionlist-wrapper pt-0">
-            <div className="collectionlist-slider row">
-              {visibleCollections.map((collection) => (
-                <div key={collection.id} className="col collectionlist-item">
-                  <CollectionCard
-                    image={collection.image}
-                    title={collection.title}
-                    href={collection.href}
-                    count={collection.count}
-                  />
-                </div>
+          <div className="collectionlist-wrapper">
+            <div className="collectionlist-grid">
+              {collections.map((collection) => (
+                <CollectionCard
+                  key={collection.id}
+                  image={collection.image}
+                  title={collection.title}
+                  href={collection.href}
+                  count={collection.count}
+                />
               ))}
             </div>
-
-            {/* Carousel Controls */}
-            {collections.length > slidesPerView && (
-              <div className="carousel-controls">
-                <button
-                  className="carousel-btn prev"
-                  onClick={handlePrev}
-                  disabled={currentSlide === 0}
-                  aria-label="Previous slide"
-                >
-                  ←
-                </button>
-                <button
-                  className="carousel-btn next"
-                  onClick={handleNext}
-                  disabled={currentSlide >= maxSlide}
-                  aria-label="Next slide"
-                >
-                  →
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import ComfortBanner from '../components/ComfortBanner'
 import GradientTicker from '../components/GradientTicker'
 import FeaturedCollections from '../components/FeaturedCollections'
 import BannerGrid from '../components/BannerGrid'
-import BannerGridDouble from '../components/BannerGridDouble'
 import ProductListSmall from '../components/ProductListSmall'
 import AdvancedContent from '../components/AdvancedContent'
 import StoreBanner from '../components/StoreBanner'
@@ -33,8 +32,6 @@ function Home() {
         <FeaturedCollections />
 
         <BannerGrid />
-
-        <BannerGridDouble />
 
         <ProductListSmall />
 
