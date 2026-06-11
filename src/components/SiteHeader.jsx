@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './SiteHeader.css'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -10,7 +10,7 @@ const logoUrl =
   'https://qx-shooz.myshopify.com/cdn/shop/files/logo.png?v=1731409697&width=280'
 
 const navItems = [
-  { label: 'Home', path: '/', active: true },
+  { label: 'Home', path: '/' },
   { label: 'Shop', path: '/shops', hasDropdown: true },
   { label: 'Product', path: '/products', hasDropdown: true },
   { label: 'Blog', path: '/blog', hasDropdown: true },
@@ -137,16 +137,17 @@ function SiteHeader() {
 
         <nav className={`main-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary">
           {navItems.map((item) => (
-            <Link
+            <NavLink
               key={item.label}
               to={item.path}
-              className={item.active ? 'is-active' : ''}
+              className={({ isActive }) => (isActive ? 'is-active' : undefined)}
+              end={item.path === '/'}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.badge ? <span className="nav-badge">{item.badge}</span> : null}
               <span>{item.label}</span>
               {item.hasDropdown ? <IconChevron /> : null}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
