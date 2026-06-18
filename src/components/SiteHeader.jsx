@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './SiteHeader.css'
 import { Link, NavLink } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -84,6 +85,7 @@ function IconInstagram() {
 
 function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { totalCount, toggleCart } = useCart()
 
   return (
     <header className="site-header">
@@ -162,10 +164,10 @@ function SiteHeader() {
             <IconHeart />
             <span className="action-count">2</span>
           </Link>
-          <Link to="/cart" className="cart-link" aria-label="Cart">
+          <button type="button" className="cart-link cart-button" onClick={toggleCart} aria-label="Open cart drawer">
             <IconBag />
-            <span>(1)</span>
-          </Link>
+            <span>{totalCount > 0 ? `(${totalCount})` : '(0)'}</span>
+          </button>
         </div>
       </div>
 

@@ -1,25 +1,21 @@
-/* GridBanner.css */
-
-/* import premium font (Outfit / Inter) */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
-
 .snb-sneakers-section {
-  background-color: #333333;
-  padding: 80px 24px;
+  background:
+    linear-gradient(135deg, rgba(47, 111, 104, 0.18), transparent 34%),
+    #181716;
+  padding: 78px 24px;
   color: #ffffff;
-  font-family: 'Outfit', sans-serif;
   overflow: hidden;
 }
 
 .snb-sneakers-container {
-  max-width: 1200px;
+  max-width: var(--container);
   margin: 0 auto;
 }
 
-/* Section Header Styling */
 .snb-section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin: 0 auto 52px;
+  max-width: 680px;
 }
 
 .snb-header-subtop {
@@ -27,15 +23,14 @@
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 12px;
 }
 
 .snb-header-title {
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 700;
-  letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0 0 16px 0;
   line-height: 1.2;
@@ -46,11 +41,10 @@
   color: rgba(255, 255, 255, 0.6);
   max-width: 600px;
   margin: 0 auto;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
 }
 
-/* Banners Grid Layout */
 .snb-banners-grid {
   display: grid;
   gap: 30px;
@@ -66,18 +60,18 @@
   margin-bottom: 0; /* Clear bottom margin on last row */
 }
 
-/* Card Styling */
 .snb-banner-card {
   position: relative;
-  height: 370px;
+  height: 350px;
   margin: 0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
   cursor: pointer;
+  isolation: isolate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Image Wrapping & Transitions */
 .snb-image-wrapper {
   position: absolute;
   top: 0;
@@ -98,7 +92,6 @@
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Premium Gradient Overlay: Darker on the left to make text highly readable */
 .snb-banner-overlay {
   position: absolute;
   top: 0;
@@ -107,22 +100,21 @@
   bottom: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.45) 45%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.42) 48%,
+    rgba(0, 0, 0, 0.04) 100%
   );
   opacity: 0.9;
   transition: opacity 0.5s ease;
   z-index: 2;
 }
 
-/* Card Content Styling */
 .snb-banner-content {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 40px;
+  padding: 34px;
   box-sizing: border-box;
   z-index: 3;
   pointer-events: none; /* Let pointer events pass to click overlay */
@@ -133,7 +125,7 @@
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 12px;
 }
@@ -144,10 +136,8 @@
   line-height: 1.25;
   color: #ffffff;
   margin: 0 0 24px 0;
-  letter-spacing: -0.01em;
 }
 
-/* Underline Link Button */
 .snb-shop-now-btn {
   display: inline-block;
   color: #ffffff;
@@ -159,14 +149,13 @@
   padding-bottom: 6px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.4);
   pointer-events: auto; /* Re-enable pointer events for the link if needed */
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .snb-shop-now-btn:hover {
   border-color: #ffffff;
 }
 
-/* Entire card click overlay */
 .snb-card-click-overlay {
   position: absolute;
   top: 0;
@@ -176,9 +165,13 @@
   z-index: 4;
 }
 
-/* Hover interactions */
+.snb-banner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.28);
+}
+
 .snb-banner-card:hover .snb-banner-image {
-  transform: scale(1.06);
+  transform: scale(1.055);
   filter: saturate(1.15) brightness(1.05);
 }
 
@@ -191,9 +184,6 @@
   transform: translateY(-2px);
 }
 
-/* RESPONSIVE DESIGN */
-
-/* Tablets and medium screens */
 @media (max-width: 991px) {
   .snb-sneakers-section {
     padding: 60px 20px;
@@ -207,13 +197,11 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* Make the 3rd banner take full width or adjust */
   .snb-grid-3-cols .snb-banner-card:last-child {
     grid-column: span 2;
   }
 }
 
-/* Mobile screens */
 @media (max-width: 767px) {
   .snb-sneakers-section {
     padding: 40px 16px;
@@ -241,7 +229,7 @@
   }
   
   .snb-banner-card {
-    height: 320px;
+    height: 300px;
   }
   
   .snb-banner-content {

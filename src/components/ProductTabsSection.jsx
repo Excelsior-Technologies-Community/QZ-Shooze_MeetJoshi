@@ -1,5 +1,17 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import ProductCardActions from './ProductCardActions'
 import './ProductTabsSection.css'
+
+const TABLE_PRICE_RE = /[\d.]+/
+
+function tabPriceNumber(value) {
+  if (typeof value !== 'string') {
+    return typeof value === 'number' ? value : 25
+  }
+  const match = value.match(TABLE_PRICE_RE)
+  return match ? parseFloat(match[0]) : 25
+}
 
 const productTabs = [
   {
@@ -171,26 +183,28 @@ export default function ProductTabsSection() {
         </div>
 
         <div className="product-card-grid">
-          {activeTab.products.map((product) => (
-            <article className="shop-product-card" key={`${activeProductTab}-${product.name}`}>
-              <a href={product.href} className="shop-product-media">
-                <img src={product.image} alt={product.name} className="primary-image" />
-                <img src={product.hoverImage} alt="" aria-hidden="true" className="secondary-image" />
-                {product.sale ? <span className="sale-badge">{product.sale}</span> : null}
-                {product.countdown ? (
-                  <div className="countdown-strip">
-                    {product.countdown.map((item) => {
-                      const [value, label] = item.split(' ')
-                      return (
-                        <span key={item}>
-                          <b>{value}</b>
-                          <small>{label}</small>
-                        </span>
-                      )
-                    })}
-                  </div>
-                ) : null}
-              </a>
+          {activeTab.products.map((product) => {
+            const productPath = `/product/${product.href.split('/').pop()}`
+            return (
+              <article className="shop-product-card" key={`${activeProductTab}-${product.name}`}>
+                <Link to={productPath} className="shop-product-media">
+                  <img src={product.image} alt={product.name} className="primary-image" />
+                  <img src={product.hoverImage} alt="" aria-hidden="true" className="secondary-image" />
+                  {product.sale ? <span className="sale-badge">{product.sale}</span> : null}
+                  {product.countdown ? (
+                    <div className="countdown-strip">
+                      {product.countdown.map((item) => {
+                        const [value, label] = item.split(' ')
+                        return (
+                          <span key={item}>
+                            <b>{value}</b>
+                            <small>{label}</small>
+                          </span>
+                        )
+                      })}
+                    </div>
+                  ) : null}
+                </Link>
 
               {product.dots ? (
                 <div className="product-dots" aria-hidden="true">
@@ -208,13 +222,26 @@ export default function ProductTabsSection() {
                   <span>{product.price}</span>
                   {product.comparePrice ? <s>{product.comparePrice}</s> : null}
                 </p>
-                <a href={product.href} className="product-name">
+                <Link to={productPath} className="product-name">
                   {product.name}
-                </a>
+                </Link>
                 <p className="product-vendor">{product.vendor}</p>
+                <ProductCardActions
+                  product={{
+                    id: product.href,
+                    name: product.name,
+                    price: tabPriceNumber(product.price),
+                    image: product.image,
+                    url: `/product/${product.href.split('/').pop()}`,
+                    in_stock: true,
+                  }}
+                  productName={product.name}
+                  productLink={productPath}
+                />
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

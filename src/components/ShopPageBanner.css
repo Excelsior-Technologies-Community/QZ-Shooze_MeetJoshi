@@ -5,16 +5,17 @@
 .collection-page {
   width: 100%;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================
    Global Container
 ========================= */
 
-.container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
+.shop-page-container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -25,7 +26,7 @@
 .breadcrumb-wrapper {
   width: 100%;
   background: #fff;
-  padding: 22px 0;
+  padding: 18px 0;
 }
 
 .breadcrumb {
@@ -33,12 +34,12 @@
   align-items: center;
   gap: 14px;
   margin: 0;
-  padding: 0 40px;
-  font-size: 18px;
+  padding: 0;
+  font-size: 14px;
 }
 
 .breadcrumb span:first-child {
-  color: #f6a500;
+  color: var(--accent-gold);
   cursor: pointer;
 }
 
@@ -58,8 +59,16 @@
 .collection-hero {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 390px;
   overflow: hidden;
+}
+
+.banner-image {
+  transition: transform 0.5s ease;
+}
+
+.collection-hero:hover .banner-image {
+  transform: scale(1.03);
 }
 
 .banner-image {
@@ -71,10 +80,12 @@
 
 /* Dark Overlay */
 
-.overlay {
+.collection-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.2)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.32), transparent 52%);
 }
 
 /* Banner Content */
@@ -90,9 +101,43 @@
 .banner-content h1 {
   margin: 0;
   color: #fff;
-  font-size: 68px;
+  font-size: 58px;
   font-weight: 700;
   text-align: center;
+  max-width: min(780px, calc(100% - 48px));
+  line-height: 1.05;
+}
+
+.site-head__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 0 0;
+}
+
+.site-head__list__list-item {
+  list-style: none;
+}
+
+.site-head__list__list-item a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.site-head__list__list-item a:hover {
+  color: #a43b4e;
+  background: rgba(255, 255, 255, 1);
+  border-color: #d9d9d9;
+  transform: translateY(-1px);
 }
 
 /* =========================
@@ -104,7 +149,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 18px;
-  padding: 16px 0;
+  padding: 18px 0;
   margin: 0;
   list-style: none;
 }
@@ -140,7 +185,7 @@
 
 @media (max-width: 768px) {
   .collection-hero {
-    height: 300px;
+    height: 260px;
   }
 
   .banner-content h1 {
@@ -148,8 +193,15 @@
   }
 
   .breadcrumb {
-    padding: 0 20px;
     font-size: 15px;
+  }
+
+  .site-head__list {
+    gap: 12px;
+    padding-top: 10px;
+  }
+  .site-head__list__list-item a {
+    font-size: 13px;
   }
 }
 

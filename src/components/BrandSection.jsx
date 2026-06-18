@@ -20,11 +20,10 @@ function BrandSection() {
       <div className="brand-container">
 
         <div className="brand-header">
-          <h2>Customer Feedback Highlights</h2>
+          <h2>Brands We Carry</h2>
 
           <p>
-            Laoreet ridiculus congue magna malesuada
-            phasellus condimentum taciti mus primis.
+            Explore a curated mix of athletic, everyday, and premium footwear labels.
           </p>
         </div>
 

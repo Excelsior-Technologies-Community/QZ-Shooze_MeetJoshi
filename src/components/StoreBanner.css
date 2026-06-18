@@ -1,37 +1,57 @@
-.store-banner{
-    background: linear-gradient(to right, #6a5acd, #c0392b);
-    padding: 20px 20px;
-}
-.store-container{
-    max-width:1200px;
-    margin:auto;
-}
-.store-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-.store-title{
-    color:white;
-    font-size:32px;
-    weight:500;
-    margin:0;
-}
-.store-btn{
-    background-color: #3f51b5;
-    color: white;
-    padding: 16px 40px;
-    text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 1px;
-  transition: 0.3s ease;
-}
-.store-btn:hover {
-  background-color: #2c3e9f;
+.store-banner-section {
+  background: var(--surface);
+  padding: 0;
 }
 
-/* Responsive */
+.store-banner {
+  background:
+    linear-gradient(135deg, rgba(47, 111, 104, 0.95), rgba(47, 111, 104, 0.78)),
+    linear-gradient(90deg, var(--accent), var(--accent-gold));
+  padding: 30px 24px;
+}
+
+.store-container {
+  width: min(var(--container), 100%);
+  margin: 0 auto;
+}
+
+.store-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+}
+
+.store-title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 32px;
+  background-color: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+}
+
+.store-btn:hover {
+  background-color: var(--ink);
+  color: #fff;
+  transform: translateY(-2px);
+}
 
 @media (max-width: 768px) {
   .store-content {

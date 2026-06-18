@@ -60,7 +60,7 @@ function BlogSection() {
           <div className="left-blog">
             <img src={posts[0].image} alt="" />
 
-            <div className="overlay"></div>
+            <div className="blog-section-overlay"></div>
 
             <div className="left-content">
               <div className="meta">

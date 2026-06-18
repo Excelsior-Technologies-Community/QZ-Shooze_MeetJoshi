@@ -1,10 +1,18 @@
 :root {
-  --page: #f8f4ee;
-  --surface: #fffaf4;
-  --ink: #201815;
-  --muted: #6e5c50;
-  --accent: #9e3d37;
-  --accent-soft: #ce694d;
+  --page: #f6f7f4;
+  --surface: #ffffff;
+  --surface-soft: #f3f1ec;
+  --ink: #181716;
+  --muted: #65665f;
+  --line: #e7e2db;
+  --accent: #ad3e51;
+  --accent-strong: #8f2f43;
+  --accent-soft: #eec8c4;
+  --accent-cool: #2f6f68;
+  --accent-gold: #d79530;
+  --shadow-soft: 0 16px 40px rgba(24, 23, 22, 0.08);
+  --shadow-lift: 0 24px 54px rgba(24, 23, 22, 0.14);
+  --container: 1180px;
   --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-display: Georgia, 'Times New Roman', serif;
 
@@ -12,9 +20,7 @@
   line-height: 1.5;
   font-weight: 400;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top, rgba(206, 105, 77, 0.1), transparent 28%),
-    linear-gradient(180deg, #f6f0e8, #f8f4ee);
+  background: var(--page);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,6 +39,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a,
@@ -45,12 +52,55 @@ select {
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 img {
   max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cool);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
 }
 
 #root {
   min-height: 100vh;
+}
+
+.storefront-shell main {
+  animation: page-enter 520ms ease both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
 }

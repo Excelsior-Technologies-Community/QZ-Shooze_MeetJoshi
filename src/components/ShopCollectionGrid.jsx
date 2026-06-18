@@ -36,7 +36,7 @@ export default function CollectionGrid() {
           <div className="collection-card" key={index}>
             <img src={item.image} alt={item.title} />
 
-            <div className="overlay"></div>
+            <div className="shop-collection-overlay"></div>
 
             <div className="collection-content">
               <h3>{item.title}</h3>

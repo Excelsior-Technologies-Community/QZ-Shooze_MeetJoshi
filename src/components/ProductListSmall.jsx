@@ -1,33 +1,25 @@
+import { Link } from 'react-router-dom'
+import ProductCardActions from './ProductCardActions'
+import { productsData } from '../data/products'
 import './ProductListSmall.css'
 
-const products = [
-  {
-    id: 1,
-    name: 'Classic White Tennis Sneakers',
-    price: '$25.00',
-    image:
-      'https://qx-shooz.myshopify.com/cdn/shop/files/product-4_a9f5532a-47cd-4f32-8958-57ee765f0a27.jpg?v=1731311278&width=150',
-    href: '/collections/frontpage/products/classic-white-tennis-sneakers',
-  },
-  {
-    id: 2,
-    name: 'Waterproof Hiking Boots',
-    price: '$25.00',
-    image:
-      'https://qx-shooz.myshopify.com/cdn/shop/files/product-17.jpg?v=1731315215&width=150',
-    href: '/collections/frontpage/products/waterproof-hiking-boots',
-  },
-  {
-    id: 3,
-    name: 'Classic Leather Sneakers',
-    price: '$21.00',
-    image:
-      'https://qx-shooz.myshopify.com/cdn/shop/files/product-3_be4a38ab-621f-46d5-a126-3488687e10f6.jpg?v=1731311211&width=150',
-    href: '/collections/frontpage/products/classic-leather-sneakers',
-  },
-]
+const listProductIds = [4, 17, 3]
+const products = listProductIds.map((id) => {
+  const source = productsData.find((p) => p.id === id) ?? {}
+  return {
+    id: source.id ?? id,
+    name: source.name ?? 'Product',
+    price: source.price ?? 25,
+    image: source.image,
+    url: source.url,
+    in_stock: source.in_stock ?? true,
+    href: source.url,
+  }
+})
 
 export default function ProductListSmall() {
+  const formatPrice = (price) => (price === 0 ? 'Price on request' : `$${price.toFixed(2)}`)
+
   return (
     <section className="product-list-small-section">
       <div className="container">
@@ -45,21 +37,30 @@ export default function ProductListSmall() {
           <div className="product-list-columns">
             {Array.from({ length: 3 }).map((_, columnIndex) => (
               <div key={columnIndex} className="product-list-column">
-                {products.map((product, productIndex) => (
-                  <article
-                    key={`${columnIndex}-${product.id}`}
-                    className="product-list-item"
-                    style={{ animationDelay: `${200 + columnIndex * 200 + productIndex * 80}ms` }}
-                  >
-                    <a href={product.href} className="product-list-link">
-                      <img src={product.image} alt={product.name} loading="lazy" />
-                      <div className="product-list-copy">
-                        <h4>{product.name}</h4>
-                        <div className="product-list-price">{product.price}</div>
+                {products.map((product, productIndex) => {
+                  const productPath = `/product/${product.url?.split('/').pop() ?? product.href?.split('/').pop()}`
+
+                  return (
+                    <article
+                      key={`${columnIndex}-${product.id}`}
+                      className="product-list-item"
+                      style={{ animationDelay: `${200 + columnIndex * 200 + productIndex * 80}ms` }}
+                    >
+                      <div className="product-list-link">
+                        <Link to={productPath} className="product-list-thumb" aria-label={`View ${product.name}`}>
+                          <img src={product.image} alt={product.name} loading="lazy" />
+                        </Link>
+                        <div className="product-list-copy">
+                          <Link to={productPath}>
+                          <h4>{product.name}</h4>
+                          <div className="product-list-price">{formatPrice(product.price)}</div>
+                          </Link>
+                          <ProductCardActions product={product} productName={product.name} productLink={productPath} compact />
+                        </div>
                       </div>
-                    </a>
-                  </article>
-                ))}
+                    </article>
+                  )
+                })}
               </div>
             ))}
           </div>

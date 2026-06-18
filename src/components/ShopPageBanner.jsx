@@ -5,7 +5,7 @@ export default function ShopPageBanner() {
     <section className="collection-page">
       {/* Breadcrumb */}
       <div className="breadcrumb-wrapper">
-        <div className="container">
+        <div className="shop-page-container">
           <p className="breadcrumb">
             <span>Home</span>
             <span className="slash">/</span>
@@ -22,14 +22,14 @@ export default function ShopPageBanner() {
           className="banner-image"
         />
 
-        <div className="overlay"></div>
+        <div className="collection-hero-overlay"></div>
 
         <div className="banner-content">
           <h1>Products</h1>
         </div>
       </div>
 
-      <div className="container">
+      <div className="shop-page-container">
         <ul className="site-head__list list-inline text-center py-4 collection-list border-bottom">
           <li className="site-head__list__list-item list-inline-item">
             <a href="/collections/athletic-footwear">

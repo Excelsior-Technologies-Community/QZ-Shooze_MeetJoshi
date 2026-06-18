@@ -1,6 +1,13 @@
 .shop-products-section {
   padding: 36px 0 72px;
   background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.shop-products-section .container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
 }
 
 .shop-products-layout {
@@ -15,6 +22,7 @@
   border: 0;
   border-radius: 0;
   padding: 0;
+  min-width: 0;
 }
 
 .sidebar-header {
@@ -97,6 +105,10 @@
 
 .filter-button:hover {
   background: #f3f3f3;
+}
+
+.filter-option {
+  gap: 10px;
 }
 
 .price-filter {
@@ -271,6 +283,19 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.results-toolbar {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.toolbar-right {
+  min-width: 240px;
+}
+
+.toolbar-right select {
+  min-width: 180px;
+}
+
 .pagination-footer {
   display: flex;
   align-items: center;
@@ -335,6 +360,16 @@
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+
+  .toolbar-right label,
+  .toolbar-right select,
+  .product-count {
+    width: 100%;
+  }
+
+  .toolbar-right select {
+    max-width: 100%;
   }
 
   .product-grid {

@@ -39,7 +39,7 @@ const FooterSection = () => {
 
           {/* Column 1 */}
           <div className="footer-col">
-            <h4>INFOMATION</h4>
+            <h4>INFORMATION</h4>
 
             <ul>
               <li>About Us</li>
@@ -113,7 +113,7 @@ const FooterSection = () => {
         <div className="footer-bottom">
 
           <p>
-            Copyright © 2024 <span>Shooz.</span> All rights reserved
+            Copyright &copy; 2024 <span>Shooz.</span> All rights reserved
           </p>
 
           <div className="payments">

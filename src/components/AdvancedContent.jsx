@@ -9,13 +9,13 @@ export default function AdvancedContent() {
             <span className="subtop">Our most popular styles</span>
             <h2>Save big on shoes from last season</h2>
             <p>
-              Morbi natoque id finibus natoque sapien turpis elementum maximus. Sociosqu auctor a urna consequat
-              laoreet nisi accumsan magna. Adipiscing vulputate nec euismod, a aliquam enim. Mi facilisi ex est
-              habitant lacus sagittis vitae.
+              Find polished sneakers, boots, sandals, and everyday pairs with the comfort details
+              that make repeat wear easy. Each style is selected for clean lines, dependable fit,
+              and an easy path from weekday plans to weekend movement.
             </p>
             <p>
-              Molestie dolor mus vitae penatibus sed lectus convallis ut neque. Leo elementum euismod penatibus cras
-              sociosqu aliquet tellus.
+              Limited seasonal pricing keeps the edit sharp, so the right pair feels as good at
+              checkout as it does on the first step out.
             </p>
             <a href="/collections" className="btn-theme-advanced">
               Shop Now

@@ -1,11 +1,11 @@
 .brand-section {
-  background: #f5f5f5;
-  padding: 80px 20px;
+  background: var(--surface);
+  padding: 78px 20px;
 }
 
 .brand-container {
-  max-width: 1400px;
-  margin: auto;
+  max-width: var(--container);
+  margin: 0 auto;
 }
 
 .brand-header {
@@ -14,43 +14,42 @@
 }
 
 .brand-header h2 {
-  font-size: 58px;
+  font-size: 44px;
   font-weight: 700;
-  margin-bottom: 18px;
-  color: #000;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: var(--ink);
 }
 
 .brand-header p {
-  color: #8d8d8d;
-  font-size: 20px;
-  line-height: 1.8;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
   max-width: 700px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .brand-grid {
   display: grid;
 
-  /* EXACT 5 COLUMN LAYOUT */
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 30px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .brand-card {
   background: #fff;
-
-  height: 130px;
-
+  border: 1px solid var(--line);
+  height: 118px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: all 0.3s ease;
+  transition: transform 0.26s ease, border-color 0.26s ease, box-shadow 0.26s ease;
 }
 
 .brand-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  border-color: rgba(173, 62, 81, 0.2);
+  box-shadow: var(--shadow-soft);
 }
 
 .brand-card img {
@@ -60,7 +59,7 @@
   filter: grayscale(100%);
   opacity: 0.75;
 
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .brand-card:hover img {
