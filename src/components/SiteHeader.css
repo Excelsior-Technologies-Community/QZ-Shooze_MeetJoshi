@@ -1,17 +1,17 @@
 .site-header {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid var(--line);
   width: 100%;
   position: relative;
   z-index: 30;
-  box-shadow: 0 1px 0 rgba(24, 23, 22, 0.03);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 .promo-bar {
   width: 100%;
-  min-height: 42px;
+  min-height: 40px;
   color: #fff;
-  background: linear-gradient(90deg, var(--accent-cool) 0%, var(--accent) 58%, var(--accent-gold) 100%);
+  background: linear-gradient(90deg, var(--accent-cool) 0%, var(--accent) 50%, var(--accent-gold) 100%);
   overflow: hidden;
 }
 
@@ -65,10 +65,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 44px;
+  min-height: 42px;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .utility-bar p {
@@ -95,9 +95,9 @@
 
 .main-header {
   display: grid;
-  grid-template-columns: 180px 1fr 180px;
+  grid-template-columns: 160px 1fr 180px;
   align-items: center;
-  min-height: 92px;
+  min-height: 88px;
   gap: 20px;
 }
 
@@ -159,9 +159,9 @@
   gap: 3px;
   color: var(--ink);
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-transform: capitalize;
   white-space: nowrap;
   transition: color 0.22s ease, transform 0.22s ease;

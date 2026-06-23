@@ -1,6 +1,6 @@
 .advanced-content-section {
   background: linear-gradient(180deg, var(--surface), var(--surface-soft));
-  padding: 82px 0;
+  padding: 76px 0;
 }
 
 @media (max-width: 750px) {
@@ -28,23 +28,26 @@
 
 .advanced-content-copy .subtop {
   display: block;
-  font-size: 13px;
-  letter-spacing: 1.5px;
+  font-size: 12px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   color: var(--accent-cool);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  font-weight: 600;
 }
 
 .advanced-content-copy h2 {
-  font-size: 46px;
-  line-height: 1.05;
-  margin: 0 0 24px;
+  font-size: 42px;
+  line-height: 1.08;
+  margin: 0 0 22px;
+  font-weight: 700;
 }
 
 .advanced-content-copy p {
   color: var(--muted);
-  line-height: 1.8;
-  margin: 0 0 18px;
+  line-height: 1.75;
+  margin: 0 0 16px;
+  font-size: 15px;
 }
 
 .btn-theme-advanced {

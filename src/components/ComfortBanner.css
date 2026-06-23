@@ -1,8 +1,8 @@
 .comfort-banner-section {
   position: relative;
-  min-height: 462px;
+  min-height: 440px;
   padding: 0;
-  background-position: 32% center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -11,14 +11,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .comfort-banner-inner {
   position: relative;
   z-index: 1;
-  width: min(1280px, calc(100% - 32px));
-  min-height: 462px;
+  width: min(1200px, calc(100% - 40px));
+  min-height: 440px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -27,36 +27,39 @@
 
 .comfort-banner-copy {
   width: 100%;
-  max-width: 618px;
+  max-width: 560px;
   display: grid;
   justify-items: end;
   text-align: right;
-  color: #020202;
-  padding-right: 98px;
+  color: var(--ink);
+  padding-right: 80px;
 }
 
 .comfort-banner-copy p {
-  margin: 0 0 16px;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  color: var(--muted);
 }
 
 .comfort-banner-copy h2 {
-  margin: 0 0 18px;
-  font-size: 33px;
-  line-height: 1.42;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  font-size: 32px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .comfort-banner-copy > span {
   display: block;
-  max-width: 595px;
-  margin-bottom: 28px;
+  max-width: 500px;
+  margin-bottom: 24px;
   font-size: 14px;
-  line-height: 1.72;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .comfort-banner-button {
@@ -64,16 +67,16 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-width: 129px;
-  height: 36px;
-  padding: 0 22px;
-  background: #c74759;
+  min-width: 140px;
+  height: 40px;
+  padding: 0 24px;
+  background: var(--accent);
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   transition: background-color 0.25s ease, transform 0.25s ease;
 }
 

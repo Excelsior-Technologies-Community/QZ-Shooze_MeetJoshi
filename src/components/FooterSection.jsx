@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import "./FooterSection.css";
 
 const FooterSection = () => {
@@ -58,7 +59,7 @@ const FooterSection = () => {
               <li>My Account</li>
               <li>My Cart</li>
               <li>Size Chart</li>
-              <li>Wishlist</li>
+              <li><Link to="/wishlist">Wishlist</Link></li>
               <li>Gift Card</li>
             </ul>
           </div>

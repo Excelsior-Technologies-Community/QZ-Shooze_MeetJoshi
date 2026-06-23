@@ -59,7 +59,7 @@
 .collection-hero {
   position: relative;
   width: 100%;
-  height: 390px;
+  height: 380px;
   overflow: hidden;
 }
 
@@ -84,8 +84,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.2)),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.32), transparent 52%);
+    linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.22)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 55%);
 }
 
 /* Banner Content */
@@ -101,11 +101,11 @@
 .banner-content h1 {
   margin: 0;
   color: #fff;
-  font-size: 58px;
+  font-size: 52px;
   font-weight: 700;
   text-align: center;
-  max-width: min(780px, calc(100% - 48px));
-  line-height: 1.05;
+  max-width: min(750px, calc(100% - 48px));
+  line-height: 1.1;
 }
 
 .site-head__list {

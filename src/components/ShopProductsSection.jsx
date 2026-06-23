@@ -78,6 +78,11 @@ const filters = [
 
 export default function ShopProductsSection() {
   const [sortBy, setSortBy] = useState('manual')
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 9 // Adjust as needed for design
+
+  // Reset to first page when sorting changes (handled in onChange handler)
 
   const getSortedProducts = () => {
     const sorted = [...productsData]
@@ -99,6 +104,13 @@ export default function ShopProductsSection() {
   }
 
   const sortedProducts = getSortedProducts()
+
+  // Calculate pagination values
+  const totalPages = Math.ceil(sortedProducts.length / itemsPerPage)
+  const paginatedProducts = sortedProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  )
 
   return (
     <section className="shop-products-section">
@@ -175,7 +187,10 @@ export default function ShopProductsSection() {
                 <select 
                   id="shop-sort" 
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
+                  onChange={(e) => {
+                    setSortBy(e.target.value);
+                    setCurrentPage(1);
+                  }}
                 >
                   <option value="manual">Featured</option>
                   <option value="best-selling">Best selling</option>
@@ -189,15 +204,33 @@ export default function ShopProductsSection() {
             </div>
 
             <div className="product-grid">
-              {sortedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+                {paginatedProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
             </div>
 
             <div className="pagination-footer">
-              <button type="button" className="pagination-button active">1</button>
-              <button type="button" className="pagination-button">2</button>
-              <button type="button" className="pagination-button">›</button>
+              {/* Render pagination buttons dynamically */}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  type="button"
+                  className={`pagination-button${page === currentPage ? ' active' : ''}`}
+                  onClick={() => setCurrentPage(page)}
+                >
+                  {page}
+                </button>
+              ))}
+              {/* Next page button */}
+              {currentPage < totalPages && (
+                <button
+                  type="button"
+                  className="pagination-button"
+                  onClick={() => setCurrentPage((p) => p + 1)}
+                >
+                  ›
+                </button>
+              )}
             </div>
           </div>
         </div>

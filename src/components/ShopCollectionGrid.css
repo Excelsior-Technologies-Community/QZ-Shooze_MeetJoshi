@@ -4,7 +4,7 @@
 
 .collection-section {
   width: 100%;
-  padding: 36px 0 34px;
+  padding: 32px 0 28px;
   background: var(--surface);
   box-sizing: border-box;
 }
@@ -16,8 +16,8 @@
 .shop-collection-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 28px;
-  width: min(var(--container), calc(100% - 48px));
+  gap: 24px;
+  width: min(var(--container), calc(100% - 40px));
   margin: 0 auto;
 }
 

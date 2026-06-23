@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './SiteHeader.css'
 import { Link, NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useWishlist } from '../context/WishlistContext'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -86,6 +87,7 @@ function IconInstagram() {
 function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { totalCount, toggleCart } = useCart()
+  const { totalCount: wishlistCount } = useWishlist()
 
   return (
     <header className="site-header">
@@ -162,7 +164,7 @@ function SiteHeader() {
           </Link>
           <Link to="/wishlist" aria-label="Wishlist" className="heart-button">
             <IconHeart />
-            <span className="action-count">2</span>
+            {wishlistCount > 0 && <span className="action-count">{wishlistCount}</span>}
           </Link>
           <button type="button" className="cart-link cart-button" onClick={toggleCart} aria-label="Open cart drawer">
             <IconBag />

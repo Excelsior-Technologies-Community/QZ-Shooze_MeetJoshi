@@ -1,6 +1,6 @@
 .blog-section {
   background: var(--surface-soft);
-  padding: 78px 20px;
+  padding: 72px 20px;
 }
 
 .blog-section .container {
@@ -9,31 +9,32 @@
 }
 
 .blog-header {
-  margin: 0 0 34px;
+  margin: 0 0 32px;
 }
 
 .blog-header .sub-title {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--accent-cool);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   margin: 0 0 8px;
   text-transform: uppercase;
 }
 
 .blog-header h2 {
   color: var(--ink);
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.15;
   margin: 0 0 10px;
 }
 
 .blog-header .desc {
-  max-width: 400px;
+  max-width: 380px;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.7;
   margin: 0;
+  font-size: 15px;
 }
 
 .blog-grid {

@@ -1,20 +1,20 @@
 :root {
   --page: #f6f7f4;
   --surface: #ffffff;
-  --surface-soft: #f3f1ec;
-  --ink: #181716;
-  --muted: #65665f;
-  --line: #e7e2db;
-  --accent: #ad3e51;
+  --surface-soft: #f7f6f2;
+  --ink: #1a1a1a;
+  --muted: #6d6d6d;
+  --line: #e8e8e8;
+  --accent: #ae3f4f;
   --accent-strong: #8f2f43;
-  --accent-soft: #eec8c4;
+  --accent-soft: #f0d0cc;
   --accent-cool: #2f6f68;
   --accent-gold: #d79530;
-  --shadow-soft: 0 16px 40px rgba(24, 23, 22, 0.08);
-  --shadow-lift: 0 24px 54px rgba(24, 23, 22, 0.14);
-  --container: 1180px;
-  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --container: 1200px;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   font-family: var(--font-body);
   line-height: 1.5;

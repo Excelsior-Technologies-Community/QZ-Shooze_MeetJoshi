@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useWishlist } from '../context/WishlistContext'
 import './ProductCardActions.css'
 
 function Icon({ name }) {
@@ -46,6 +47,7 @@ function Icon({ name }) {
 export default function ProductCardActions({ product, productName, productLink, inStock = true, compact = false }) {
   const [addedToCart, setAddedToCart] = useState(false)
   const { addItem, openCart } = useCart()
+  const { hasItem, toggleItem } = useWishlist()
 
   const currentProduct = product ?? {
     name: productName,
@@ -53,12 +55,18 @@ export default function ProductCardActions({ product, productName, productLink, 
     in_stock: inStock,
   }
 
+  const isWishlisted = product ? hasItem(product.id) : false
+
   const handleAddToCart = () => {
     if (!inStock || addedToCart) return
     addItem(currentProduct, 1)
     setAddedToCart(true)
     window.setTimeout(() => setAddedToCart(false), 2000)
     openCart()
+  }
+
+  const handleToggleWishlist = () => {
+    toggleItem(currentProduct)
   }
 
   return (
@@ -78,7 +86,7 @@ export default function ProductCardActions({ product, productName, productLink, 
         <Link to={productLink} aria-label={`Quick view ${productName}`} title="Quick view">
           <Icon name="eye" />
         </Link>
-        <button type="button" aria-label={`Add ${productName} to wishlist`} title="Wishlist">
+        <button type="button" className={isWishlisted ? 'is-wishlisted' : ''} onClick={handleToggleWishlist} aria-label={`Add ${productName} to wishlist`} title={isWishlisted ? 'Go to wishlist' : 'Add to Wishlist'}>
           <Icon name="heart" />
         </button>
         <button type="button" aria-label={`Compare ${productName}`} title="Compare">

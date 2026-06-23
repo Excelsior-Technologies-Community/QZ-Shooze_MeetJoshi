@@ -1,0 +1,143 @@
+.wl-breadcrumbs {
+  padding: 18px 0 10px;
+  font-size: 13px;
+  color: #666;
+}
+.wl-breadcrumbs a {
+  color: #333;
+  text-decoration: none;
+}
+.wl-breadcrumbs a:hover {
+  color: var(--accent);
+}
+.wl-breadcrumbs .sep {
+  margin: 0 6px;
+  color: #999;
+}
+.wl-breadcrumbs .current {
+  color: #111;
+}
+
+.wl-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px 80px;
+}
+
+.wl-heading {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #111;
+  text-align: center;
+}
+
+.wl-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+.wl-empty p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 16px;
+}
+.wl-continue {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.wl-continue:hover {
+  background: #c9536a;
+}
+
+.wl-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 50px;
+}
+
+.wl-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.wl-card-img {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  display: block;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+.wl-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wl-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.wl-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  text-decoration: none;
+  line-height: 1.3;
+}
+.wl-card-name:hover {
+  color: var(--accent);
+}
+
+.wl-card-price {
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+}
+
+.wl-card-remove {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #999;
+  border-radius: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+  line-height: 1.4;
+}
+.wl-card-remove:hover {
+  color: #111;
+  border-bottom-color: #111;
+}
+
+@media (max-width: 600px) {
+  .wl-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .wl-heading {
+    font-size: 24px;
+  }
+}

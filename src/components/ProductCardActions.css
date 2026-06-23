@@ -168,3 +168,11 @@
     transform: translateY(0);
   }
 }
+
+.product-card-icon-row button.is-wishlisted {
+  color: #e74c3c;
+}
+.product-card-icon-row button.is-wishlisted svg {
+  fill: #e74c3c;
+  stroke: #e74c3c;
+}

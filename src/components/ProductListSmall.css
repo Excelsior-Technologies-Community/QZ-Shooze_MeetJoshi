@@ -1,12 +1,12 @@
 .product-list-small-section {
   background-color: var(--surface);
-  padding: 72px 0 48px 0;
+  padding: 68px 0 48px 0;
   margin: 0;
 }
 
 @media (max-width: 750px) {
   .product-list-small-section {
-    padding: 40px 0 40px 0;
+    padding: 40px 0 36px 0;
   }
 }
 
@@ -17,21 +17,21 @@
 }
 
 .product-list-small-section .section-header {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .product-list-small-section .section-title-1 {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .product-list-small-section .des-header {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--muted);
-  max-width: 720px;
+  max-width: 700px;
   margin: 0 auto;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .product-list-columns {
