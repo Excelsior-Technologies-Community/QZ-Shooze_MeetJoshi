@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import './SiteHeader.css'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
+import SearchModal from './SearchModal'
+import LoginModal from './LoginModal'
+import RegisterModal from './RegisterModal'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -14,10 +17,10 @@ const logoUrl =
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'Shop', path: '/shops', hasDropdown: true },
-  { label: 'Product', path: '/products', hasDropdown: true },
+  { label: 'Product', path: '/shops', hasDropdown: true },
   { label: 'Blog', path: '/blog', hasDropdown: true },
-  { label: 'Pages', path: '/pages', hasDropdown: true },
-  { label: 'Buy Now', path: '/buy-now', badge: 'Sale' },
+  { label: 'Pages', path: '/shops', hasDropdown: true },
+  { label: 'Buy Now', path: '/shops', badge: 'Sale' },
 ]
 
 function IconChevron() {
@@ -86,8 +89,19 @@ function IconInstagram() {
 
 function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false)
   const { totalCount, toggleCart } = useCart()
   const { totalCount: wishlistCount } = useWishlist()
+  const location = useLocation()
+
+  const isActive = (item) => {
+    if (item.path === '/') return location.pathname === '/'
+    if (item.path === '/shops') return location.pathname === '/shops' && item.label === 'Shop'
+    if (item.path === '/blog') return location.pathname === '/blog'
+    return false
+  }
 
   return (
     <header className="site-header">
@@ -107,9 +121,9 @@ function SiteHeader() {
       <div className="utility-bar">
         <p>One Day Delivery Available</p>
         <div className="utility-links">
-          <Link to="/">Login</Link>
+          <button type="button" className="utility-link-btn" onClick={() => setIsLoginOpen(true)}>Login</button>
           <span>/</span>
-          <Link to="/">Register</Link>
+          <button type="button" className="utility-link-btn" onClick={() => setIsRegisterOpen(true)}>Register</button>
           <Link to="/" aria-label="Facebook">
             <IconFacebook />
           </Link>
@@ -141,25 +155,24 @@ function SiteHeader() {
 
         <nav className={`main-nav ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary">
           {navItems.map((item) => (
-            <NavLink
+            <Link
               key={item.label}
               to={item.path}
-              className={({ isActive }) => (isActive ? 'is-active' : undefined)}
-              end={item.path === '/'}
+              className={isActive(item) ? 'is-active' : undefined}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.badge ? <span className="nav-badge">{item.badge}</span> : null}
               <span>{item.label}</span>
               {item.hasDropdown ? <IconChevron /> : null}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
         <div className="header-actions">
-          <Link to="/" aria-label="Search">
+          <button type="button" aria-label="Search" onClick={() => setIsSearchOpen(true)}>
             <IconSearch />
-          </Link>
-          <Link to="/account" aria-label="Account">
+          </button>
+          <Link to="/shops" aria-label="Account">
             <IconUser />
           </Link>
           <Link to="/wishlist" aria-label="Wishlist" className="heart-button">
@@ -177,6 +190,17 @@ function SiteHeader() {
         className={`nav-backdrop ${isMenuOpen ? 'is-visible' : ''}`}
         onClick={() => setIsMenuOpen(false)}
         aria-hidden="true"
+      />
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+        onSwitchToRegister={() => { setIsLoginOpen(false); setIsRegisterOpen(true) }}
+      />
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        onSwitchToLogin={() => { setIsRegisterOpen(false); setIsLoginOpen(true) }}
       />
     </header>
   )

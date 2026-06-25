@@ -263,3 +263,32 @@
     right: 14px;
   }
 }
+
+@media (max-width: 480px) {
+  .blog-featured-image {
+    min-height: 300px;
+  }
+
+  .blog-featured-title {
+    font-size: 26px;
+  }
+
+  .blog-arrow-left,
+  .blog-arrow-right {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+  }
+
+  .blog-card-body {
+    padding: 16px 14px 20px;
+  }
+
+  .blog-card-title {
+    font-size: 18px;
+  }
+
+  .blog-read-more {
+    min-height: 44px;
+  }
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ComfortBanner.css'
 
 const banner = {
@@ -7,7 +8,7 @@ const banner = {
     'Our collection features comfortable and stylish footwear designed to keep your feet happy all day long.',
   image:
     'https://qx-shooz.myshopify.com/cdn/shop/files/wide-banner.png?v=1731045552&width=1940',
-  href: '/collections',
+  href: '/shops',
 }
 
 function IconArrow() {
@@ -32,16 +33,16 @@ export default function ComfortBanner() {
           <p>{banner.eyebrow}</p>
           <h2>{banner.title}</h2>
           <span>{banner.description}</span>
-          <a href={banner.href} className="comfort-banner-button">
+          <Link to={banner.href} className="comfort-banner-button">
             <span>Shop Now</span>
             <IconArrow />
-          </a>
+          </Link>
         </div>
       </div>
-      <a href="/" className="compare-tab compare-tab--banner">
+      <Link to="/shops" className="compare-tab compare-tab--banner">
         <span>Compare</span>
         <b>0</b>
-      </a>
+      </Link>
     </section>
   )
 }

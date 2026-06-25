@@ -37,7 +37,7 @@
 
 .comfort-banner-copy p {
   margin: 0 0 14px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -159,7 +159,7 @@
 
   .comfort-banner-copy p {
     margin-bottom: 14px;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.22em;
   }
 
@@ -177,9 +177,9 @@
 
   .comfort-banner-button {
     min-width: 124px;
-    height: 36px;
+    min-height: 44px;
     padding: 0 20px;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .compare-tab--banner {

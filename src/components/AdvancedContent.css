@@ -160,6 +160,10 @@
     grid-template-columns: 1fr;
   }
 
+  .media-large {
+    min-height: 260px;
+  }
+
   .media-small {
     min-height: 260px;
   }
@@ -172,5 +176,10 @@
 
   .advanced-content-copy p {
     font-size: 15px;
+  }
+
+  .media-large,
+  .media-small {
+    min-height: 220px;
   }
 }

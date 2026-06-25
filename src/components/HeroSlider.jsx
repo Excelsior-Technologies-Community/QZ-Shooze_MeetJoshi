@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './HeroSlider.css'
 
 const slides = [
@@ -9,7 +10,7 @@ const slides = [
       'From classic sneakers to trendy boots, our collection has something for everyone.',
     image:
       'https://qx-shooz.myshopify.com/cdn/shop/files/banner-1.png?v=1731045553&width=1728',
-    href: '/collections/all',
+    href: '/shops',
     align: 'right',
   },
   {
@@ -19,7 +20,7 @@ const slides = [
       'Explore our wide range of styles, colors, and materials to find the perfect shoes for any occasion.',
     image:
       'https://qx-shooz.myshopify.com/cdn/shop/files/banner-2.png?v=1731045552&width=1728',
-    href: '#',
+    href: '/shops',
     align: 'right',
   },
   {
@@ -29,7 +30,7 @@ const slides = [
       'Our collection features comfortable and stylish footwear designed to keep your feet happy all day long.',
     image:
       'https://qx-shooz.myshopify.com/cdn/shop/files/banner-3.png?v=1731045552&width=1728',
-    href: '/collections',
+    href: '/shops',
     align: 'left',
   },
 ]
@@ -70,10 +71,10 @@ export default function HeroSlider() {
               <p className="hero-eyebrow">{slide.eyebrow}</p>
               <h1>{slide.title}</h1>
               <p>{slide.description}</p>
-              <a href={slide.href} className="hero-button">
+              <Link to={slide.href} className="hero-button">
                 <span>Shop Now</span>
                 <IconArrow />
-              </a>
+              </Link>
             </div>
           </div>
         </article>
@@ -91,10 +92,10 @@ export default function HeroSlider() {
         ))}
       </div>
 
-      <a href="/" className="compare-tab">
+      <Link to="/shops" className="compare-tab">
         <span>Compare</span>
         <b>0</b>
-      </a>
+      </Link>
     </section>
   )
 }

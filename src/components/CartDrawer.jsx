@@ -87,12 +87,12 @@ export default function CartDrawer() {
             </div>
             <p className="cart-drawer__tax-note">Taxes and shipping calculated at checkout</p>
             <div className="cart-drawer__btns">
-              <Link to="/cart" className="cart-drawer__btn cart-drawer__btn--outline" onClick={closeCart}>
+              <button type="button" className="cart-drawer__btn cart-drawer__btn--outline" onClick={closeCart}>
                 View Cart
-              </Link>
-              <Link to="/checkout" className="cart-drawer__btn cart-drawer__btn--checkout" onClick={closeCart}>
+              </button>
+              <button type="button" className="cart-drawer__btn cart-drawer__btn--checkout" onClick={closeCart}>
                 Check Out
-              </Link>
+              </button>
             </div>
           </footer>
         )}

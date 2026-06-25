@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import "./ShopPageBanner.css";
 
 export default function ShopPageBanner() {
@@ -32,38 +33,38 @@ export default function ShopPageBanner() {
       <div className="shop-page-container">
         <ul className="site-head__list list-inline text-center py-4 collection-list border-bottom">
           <li className="site-head__list__list-item list-inline-item">
-            <a href="/collections/athletic-footwear">
+            <Link to="/shops">
               Athletic Footwear
               <span className="d-inline-block ml-1 txt-body-50">(8)</span>
-            </a>
+            </Link>
           </li>
 
           <li className="site-head__list__list-item list-inline-item">
-            <a href="/collections/boots-for-every-occasion">
+            <Link to="/shops">
               Boots for Every Occasion
               <span className="d-inline-block ml-1 txt-body-50">(8)</span>
-            </a>
+            </Link>
           </li>
 
           <li className="site-head__list__list-item list-inline-item">
-            <a href="/collections/luxury-leather-shoes">
+            <Link to="/shops">
               Luxury Leather Shoes
               <span className="d-inline-block ml-1 txt-body-50">(8)</span>
-            </a>
+            </Link>
           </li>
 
           <li className="site-head__list__list-item list-inline-item">
-            <a href="/collections/summer-sandals-slides">
+            <Link to="/shops">
               Sandals &amp; Slides
               <span className="d-inline-block ml-1 txt-body-50">(8)</span>
-            </a>
+            </Link>
           </li>
 
           <li className="site-head__list__list-item list-inline-item">
-            <a href="/collections/frontpage">
+            <Link to="/shops">
               Sneakerhead&apos;s Haven
               <span className="d-inline-block ml-1 txt-body-50">(10)</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

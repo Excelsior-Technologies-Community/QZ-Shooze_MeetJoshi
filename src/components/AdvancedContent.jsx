@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './AdvancedContent.css'
 
 export default function AdvancedContent() {
@@ -17,14 +18,14 @@ export default function AdvancedContent() {
               Limited seasonal pricing keeps the edit sharp, so the right pair feels as good at
               checkout as it does on the first step out.
             </p>
-            <a href="/collections" className="btn-theme-advanced">
+            <Link to="/shops" className="btn-theme-advanced">
               Shop Now
               <svg className="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
                 <path d="M9 4.5H0v-1h9Z" fill="currentColor" />
                 <path d="m6 1.5.7-.7 3 3-.7.7Z" fill="currentColor" />
                 <path d="m6 6.5.7.7 3-3-.7-.7Z" fill="currentColor" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className="advanced-content-media">

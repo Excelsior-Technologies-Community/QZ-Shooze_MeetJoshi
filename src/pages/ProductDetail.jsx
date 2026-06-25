@@ -229,22 +229,18 @@ export default function ProductDetail() {
               >
                 {!product.in_stock ? 'Sold Out' : currentView.added ? 'Added to cart' : 'Add to cart'}
               </button>
+              <button type="button" className="pd-buy-now" disabled={!product.in_stock} onClick={handleBuyNow}>
+                Buy it now
+              </button>
             </div>
-
-            <button type="button" className="pd-buy-now" disabled={!product.in_stock} onClick={handleBuyNow}>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Buy it now
-            </button>
 
             <div className="pd-wishlist-row">
               <button type="button" className={`pd-action-link${isWishlisted ? ' is-wishlisted' : ''}`} onClick={handleToggleWishlist}>
-                <svg viewBox="0 0 24 24" width="15" height="15" fill={isWishlisted ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                {isWishlisted ? 'Go to wishlist' : 'Add To Wishlist'}
+                <svg viewBox="0 0 24 24" width="14" height="14" fill={isWishlisted ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                {isWishlisted ? 'Go to wishlist' : 'Go To Wishlist'}
               </button>
               <button type="button" className="pd-action-link">
-                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
                 Compare
               </button>
             </div>
@@ -553,14 +549,14 @@ export default function ProductDetail() {
           </svg>
         </button>
         <div className="pd-recently-inner">
-          <a className="pd-popup-img" href={`/product/${getHandle(recentlyViewed[1] || product)}`}>
+          <Link className="pd-popup-img" to={`/product/${getHandle(recentlyViewed[1] || product)}`}>
             <img src={recentlyViewed[1]?.image || product.image} alt="" loading="lazy" />
-          </a>
+          </Link>
           <div className="pd-popup-col">
             <label>Someone recently bought</label>
-            <a className="pd-popup-name" href={`/product/${getHandle(recentlyViewed[1] || product)}`}>
+            <Link className="pd-popup-name" to={`/product/${getHandle(recentlyViewed[1] || product)}`}>
               {recentlyViewed[1]?.name || product.name}
-            </a>
+            </Link>
             <div className="pd-popup-location">in your area</div>
             <div className="pd-popup-time">Just now</div>
           </div>

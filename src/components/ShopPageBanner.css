@@ -205,3 +205,13 @@
   }
 }
 
+@media (max-width: 480px) {
+  .collection-hero {
+    height: 200px;
+  }
+
+  .banner-content h1 {
+    font-size: 28px;
+  }
+}
+

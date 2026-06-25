@@ -141,3 +141,23 @@
     font-size: 24px;
   }
 }
+
+@media (max-width: 480px) {
+  .wl-card {
+    flex-direction: column;
+  }
+
+  .wl-card-img {
+    width: 100%;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .wl-card-body {
+    padding: 16px;
+  }
+
+  .wl-heading {
+    font-size: 20px;
+  }
+}

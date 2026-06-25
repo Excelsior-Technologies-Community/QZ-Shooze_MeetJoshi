@@ -165,6 +165,10 @@
 }
 
 @media (max-width: 768px) {
+  .left-blog {
+    height: 300px;
+  }
+
   .small-blog {
     flex-direction: column;
     align-items: flex-start;
@@ -181,5 +185,23 @@
 
   .blog-header h2 {
     font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-blog {
+    height: 220px;
+  }
+
+  .left-content h3 {
+    font-size: 22px;
+  }
+
+  .blog-header h2 {
+    font-size: 28px;
+  }
+
+  .small-content h4 {
+    font-size: 18px;
   }
 }

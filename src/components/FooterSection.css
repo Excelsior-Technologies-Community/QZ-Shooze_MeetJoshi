@@ -234,3 +234,26 @@
     justify-content:center;
   }
 }
+
+@media(max-width:480px){
+  .newsletter-content{
+    padding:28px 16px;
+  }
+
+  .newsletter-content h2{
+    font-size:24px;
+  }
+
+  .footer-col h4{
+    font-size:14px;
+  }
+
+  .footer-col ul li a{
+    font-size:13px;
+  }
+
+  .footer-bottom{
+    padding:20px 16px;
+    font-size:12px;
+  }
+}

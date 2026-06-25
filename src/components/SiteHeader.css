@@ -82,9 +82,23 @@
 }
 
 .utility-links a,
-.utility-links span {
+.utility-links span,
+.utility-link-btn {
   color: #111;
   text-decoration: none;
+}
+
+.utility-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.utility-link-btn:hover {
+  color: var(--accent);
 }
 
 .utility-links svg {
@@ -224,12 +238,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  min-width: 44px;
+  min-height: 44px;
+  width: auto;
+  height: auto;
+  padding: 6px;
   color: var(--ink);
   background: transparent;
   text-decoration: none;
-  padding: 0;
   position: relative;
   cursor: pointer;
   transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
@@ -457,5 +473,51 @@
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-bar {
+    display: none;
+  }
+
+  .utility-bar {
+    font-size: 11px;
+    min-height: 32px;
+  }
+
+  .utility-links {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .utility-links svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .main-header {
+    grid-template-columns: 40px 1fr auto;
+    min-height: 60px;
+    gap: 6px;
+  }
+
+  .brand-mark img {
+    width: 90px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .header-actions {
+    gap: 2px;
+  }
+
+  .header-actions svg,
+  .cart-link svg {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -81,19 +81,21 @@
 
 .product-card-icon-row {
   flex-shrink: 0;
-  gap: 13px;
+  gap: 6px;
   color: #050505;
 }
 
 .product-card-icon-row a,
 .product-card-icon-row button {
   justify-content: center;
-  width: 23px;
-  height: 23px;
+  min-width: 44px;
+  min-height: 44px;
+  width: auto;
+  height: auto;
+  padding: 8px;
   border: 0;
   background: transparent;
   color: inherit;
-  padding: 0;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;

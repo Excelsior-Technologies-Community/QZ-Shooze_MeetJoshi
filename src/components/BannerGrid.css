@@ -241,3 +241,29 @@
     margin-bottom: 16px;
   }
 }
+
+@media (max-width: 480px) {
+  .snb-sneakers-section {
+    padding: 32px 12px;
+  }
+
+  .snb-header-title {
+    font-size: 24px;
+  }
+
+  .snb-banner-card {
+    height: 250px;
+  }
+
+  .snb-banner-content {
+    padding: 20px;
+  }
+
+  .snb-banner-title {
+    font-size: 18px;
+  }
+
+  .snb-banner-subtop {
+    font-size: 12px;
+  }
+}

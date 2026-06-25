@@ -51,7 +51,7 @@
 .pd-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 0;
   align-items: start;
   padding: 8px 0 48px;
 }
@@ -59,21 +59,22 @@
 /* ── Gallery ── */
 .pd-gallery {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 0;
 }
 
 .pd-gallery-thumbs {
   display: flex;
-  flex-direction: column;
   gap: 8px;
-  flex: 0 0 72px;
-  max-height: 520px;
-  overflow-y: auto;
+  order: 1;
+  margin-top: 12px;
+  overflow-x: auto;
   scrollbar-width: thin;
+  padding-bottom: 4px;
 }
 
 .pd-gallery-thumbs::-webkit-scrollbar {
-  width: 3px;
+  height: 3px;
 }
 
 .pd-gallery-thumbs::-webkit-scrollbar-thumb {
@@ -81,12 +82,12 @@
 }
 
 .pd-gallery-thumbs button {
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   flex-shrink: 0;
   background: var(--surface-soft);
   border: 2px solid transparent;
-  padding: 6px;
+  padding: 4px;
   cursor: pointer;
   transition: border-color 0.2s ease, opacity 0.2s ease;
   opacity: 0.5;
@@ -111,7 +112,7 @@
 .pd-gallery-main {
   position: relative;
   flex: 1;
-  aspect-ratio: 1;
+  aspect-ratio: 0.919;
   background: var(--surface-soft);
   overflow: hidden;
   border: 1px solid var(--line);
@@ -153,7 +154,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-left: 20px;
+  padding-left: 48px;
 }
 
 .pd-title {
@@ -196,15 +197,16 @@
   border: 1px solid var(--line);
   background: var(--surface);
   flex-shrink: 0;
+  height: 48px;
 }
 
 .pd-qty button {
-  width: 36px;
-  height: 44px;
+  min-width: 44px;
+  height: 100%;
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--ink);
   display: flex;
@@ -218,20 +220,20 @@
 }
 
 .pd-qty span {
-  width: 32px;
+  width: 36px;
   text-align: center;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   user-select: none;
 }
 
 .pd-add-to-cart {
   flex: 1;
-  height: 44px;
-  padding: 0 24px;
+  height: 48px;
+  padding: 0 32px;
   background: var(--accent);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -258,12 +260,12 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
-  height: 44px;
+  flex: 1;
+  height: 48px;
   background: var(--ink);
   color: #fff;
   border: 2px solid var(--ink);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -510,8 +512,8 @@
 }
 
 .pd-social-share a {
-  width: 30px;
-  height: 30px;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -601,7 +603,7 @@
 }
 
 .pd-sticky-add {
-  height: 38px;
+  min-height: 44px;
   padding: 0 22px;
   background: var(--accent);
   color: #fff;
@@ -619,7 +621,7 @@
 }
 
 .pd-sticky-buy {
-  height: 38px;
+  min-height: 44px;
   padding: 0 18px;
   background: var(--ink);
   color: #fff;
@@ -644,7 +646,7 @@
 .pd-product-content-inner {
   display: grid;
   grid-template-columns: 7fr 5fr;
-  gap: 40px;
+  gap: 48px;
   align-items: start;
 }
 
@@ -652,23 +654,26 @@
   display: flex;
   gap: 0;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
 }
 
 .pd-tab-buttons button {
   position: relative;
   background: transparent;
-  padding: 0 24px 12px;
-  font-weight: 600;
-  font-size: 14px;
+  padding: 0 40px 16px 0;
+  font-weight: 500;
+  font-size: 18px;
   color: var(--muted);
   border: none;
   cursor: pointer;
   transition: color 0.2s ease;
+  margin: 0 3rem -2px 0;
 }
 
 .pd-tab-buttons button:first-child {
   padding-left: 0;
+  margin-left: 0;
 }
 
 .pd-tab-buttons button:hover {
@@ -1297,8 +1302,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
   transition: color 0.2s ease, background 0.2s ease;
 }
@@ -1470,6 +1475,63 @@
 
   .pd-recently-popup {
     display: none;
+  }
+
+  .pd-story {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 0;
+  }
+
+  .pd-story-main {
+    width: 100%;
+    height: 280px;
+  }
+
+  .pd-story-accent {
+    width: 40%;
+  }
+
+  .pd-story-copy h2 {
+    font-size: 24px;
+  }
+
+  .pd-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .pd-benefit strong {
+    font-size: 12px;
+  }
+
+  .pd-benefit span {
+    font-size: 11px;
+  }
+
+  .pd-faq-section h2 {
+    font-size: 22px;
+  }
+
+  .pd-sale-strip-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .pd-sale-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pd-explorer h2 {
+    font-size: 24px;
+  }
+
+  .pd-countdown-num {
+    font-size: 22px;
+    min-width: 44px;
+    padding: 10px 6px;
   }
 }
 

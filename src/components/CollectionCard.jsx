@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import './CollectionCard.css'
 
-export default function CollectionCard({ image, title, href, count }) {
+export default function CollectionCard({ image, title, count }) {
   return (
     <article className="collection-card-1">
       <div className="collection-card__image">
-        <a className="hv-image-saturate image-content__image-wrapper auto" href={href}>
+        <Link to="/shops" className="hv-image-saturate image-content__image-wrapper auto">
           <img
             className="transition"
             src={image}
@@ -13,14 +14,14 @@ export default function CollectionCard({ image, title, href, count }) {
             width="1200"
             height="1200"
           />
-        </a>
+        </Link>
       </div>
       <div className="collection-card-1-infor">
         <h3>
-          <a href={href}>
+          <Link to="/shops">
             <span>{title}</span>
             <span className="collection-count">{count}</span>
-          </a>
+          </Link>
         </h3>
       </div>
     </article>

@@ -67,8 +67,8 @@
 }
 
 .cart-drawer__close {
-  width: 32px;
-  height: 32px;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,8 +200,8 @@
 }
 
 .cart-drawer__qty button {
-  width: 30px;
-  height: 30px;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;

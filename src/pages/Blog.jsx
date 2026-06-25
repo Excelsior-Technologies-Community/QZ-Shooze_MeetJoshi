@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SiteHeader from '../components/SiteHeader'
 import FooterSection from '../components/FooterSection'
 import './Blog.css'
@@ -68,9 +69,9 @@ function Blog() {
               facilisis. Quam elementum pulvinar etiam non quam lacus. Non odio euismod lacinia at
               quis risus sed vulputate...
             </p>
-            <a className="blog-read-more" href="/blog">
+            <Link className="blog-read-more" to="/blog">
               Read more <span aria-hidden="true">&gt;</span>
-            </a>
+            </Link>
           </div>
 
           <div className="blog-featured-image">
@@ -86,23 +87,23 @@ function Blog() {
           <div className="blog-listing-grid">
             {blogPosts.map((post) => (
               <article className="blog-card" key={post.title}>
-                <a className="blog-card-image" href="/blog" aria-label={post.title}>
+                <Link className="blog-card-image" to="/blog" aria-label={post.title}>
                   <img src={post.image} alt={post.title} />
-                </a>
+                </Link>
 
                 <div className="blog-card-body">
                   <BlogMeta date={post.date} />
                   <h2>
-                    <a href="/blog">{post.title}</a>
+                    <Link to="/blog">{post.title}</Link>
                   </h2>
                   <div className="blog-card-rule" />
                   <p>
                     Augue ut lectus arcu bibendum at varius vel. Ipsum nunc aliquet bibendum enim
                     facilisis. Quam elementum pulvinar etiam non quam...
                   </p>
-                  <a className="blog-read-more" href="/blog">
+                  <Link className="blog-read-more" to="/blog">
                     Read more <span aria-hidden="true">&gt;</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
