@@ -68,7 +68,7 @@
   justify-content: center;
   gap: 8px;
   min-width: 140px;
-  height: 40px;
+  min-height: 44px;
   padding: 0 24px;
   background: var(--accent);
   color: #fff;

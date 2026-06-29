@@ -125,17 +125,29 @@
 }
 
 .hero-dots button {
-  width: 10px;
-  height: 10px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
+  background: transparent;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.22s ease;
+}
+
+.hero-dots button::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
   transition: width 0.22s ease, background 0.22s ease;
 }
 
-.hero-dots button.is-active {
+.hero-dots button.is-active::after {
   width: 28px;
   background: #fff;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
@@ -252,6 +264,11 @@
 }
 
 @media (max-width: 480px) {
+  .hero-slider,
+  .hero-content-wrap {
+    min-height: 360px;
+  }
+
   .hero-content-wrap {
     width: min(100% - 16px, 1110px);
   }

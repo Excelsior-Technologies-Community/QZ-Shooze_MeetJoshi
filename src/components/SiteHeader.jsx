@@ -6,6 +6,7 @@ import { useWishlist } from '../context/WishlistContext'
 import SearchModal from './SearchModal'
 import LoginModal from './LoginModal'
 import RegisterModal from './RegisterModal'
+import MobileDrawer from './MobileDrawer'
 const promoMessages = [
   'Enjoy 20% off your entire order with the code SHOEFRESH20.',
   'Get 15% off your first purchase when you sign up for our newsletter.',
@@ -58,7 +59,7 @@ function IconHeart() {
 function IconBag() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7 8h10l-.83 12H7.83L7 8Zm3-1V6.5a2 2 0 1 1 4 0V7" />
+      <path d="M6 7h12l-1 14H7L6 7Zm4-1V5a2 2 0 0 1 4 0v1" />
     </svg>
   )
 }
@@ -92,6 +93,7 @@ function SiteHeader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [isRegisterOpen, setIsRegisterOpen] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const { totalCount, toggleCart } = useCart()
   const { totalCount: wishlistCount } = useWishlist()
   const location = useLocation()
@@ -138,11 +140,10 @@ function SiteHeader() {
 
       <div className="main-header">
         <button
-          className={`menu-toggle ${isMenuOpen ? 'is-active' : ''}`}
+          className="menu-toggle"
           type="button"
           aria-label="Toggle navigation"
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((open) => !open)}
+          onClick={() => setIsDrawerOpen(true)}
         >
           <span />
           <span />
@@ -179,18 +180,13 @@ function SiteHeader() {
             <IconHeart />
             {wishlistCount > 0 && <span className="action-count">{wishlistCount}</span>}
           </Link>
-          <button type="button" className="cart-link cart-button" onClick={toggleCart} aria-label="Open cart drawer">
+          <button type="button" className="header-action-btn" onClick={toggleCart} aria-label="Open cart drawer">
             <IconBag />
-            <span>{totalCount > 0 ? `(${totalCount})` : '(0)'}</span>
+            {totalCount > 0 && <span className="action-count">{totalCount}</span>}
           </button>
         </div>
       </div>
 
-      <div
-        className={`nav-backdrop ${isMenuOpen ? 'is-visible' : ''}`}
-        onClick={() => setIsMenuOpen(false)}
-        aria-hidden="true"
-      />
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       <LoginModal
         isOpen={isLoginOpen}
@@ -201,6 +197,12 @@ function SiteHeader() {
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
         onSwitchToLogin={() => { setIsRegisterOpen(false); setIsLoginOpen(true) }}
+      />
+      <MobileDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        onOpenLogin={() => setIsLoginOpen(true)}
+        onOpenRegister={() => setIsRegisterOpen(true)}
       />
     </header>
   )

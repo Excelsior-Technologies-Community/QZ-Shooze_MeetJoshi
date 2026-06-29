@@ -1,10 +1,25 @@
+import { useState, useCallback, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCardActions from './ProductCardActions'
 import './ProductCard.css'
 
 export default function ProductCard({ product }) {
+  const [revealed, setRevealed] = useState(false)
   const productHandle = product.url?.split('/').pop()
   const productLink = productHandle ? `/product/${productHandle}` : '/shops'
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.detail.id !== product.id) setRevealed(false)
+    }
+    window.addEventListener('card-reveal', handler)
+    return () => window.removeEventListener('card-reveal', handler)
+  }, [product.id])
+
+  const handleMouseEnter = useCallback(() => {
+    setRevealed(true)
+    window.dispatchEvent(new CustomEvent('card-reveal', { detail: { id: product.id } }))
+  }, [product.id])
 
   const discount = product.discount_percent
     ? product.discount_percent
@@ -13,7 +28,7 @@ export default function ProductCard({ product }) {
       : null
 
   return (
-    <article className="product-card">
+    <article className={`product-card${revealed ? ' revealed' : ''}`} data-product-id={product.id} onMouseEnter={handleMouseEnter}>
       <div className="product-card-image">
         {product.sale && discount && <span className="badge">-{discount}%</span>}
         {!product.in_stock && <span className="sold-out">Sold out</span>}

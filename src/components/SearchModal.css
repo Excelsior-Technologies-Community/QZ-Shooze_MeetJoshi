@@ -1,7 +1,7 @@
 .search-modal {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 1020;
   display: flex;
   justify-content: center;
 }
@@ -40,7 +40,7 @@
 }
 
 .search-modal__label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #999;
@@ -121,7 +121,7 @@
 }
 
 .search-modal__results-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #999;

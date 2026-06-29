@@ -3,6 +3,11 @@
   font-size: 13px;
   color: #666;
 }
+
+.wl-container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
 .wl-breadcrumbs a {
   color: #333;
   text-decoration: none;

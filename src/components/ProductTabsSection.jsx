@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCardActions from './ProductCardActions'
 import './ProductTabsSection.css'
@@ -159,7 +159,23 @@ const productTabs = [
 
 export default function ProductTabsSection() {
   const [activeProductTab, setActiveProductTab] = useState('Featured')
+  const [revealedCard, setRevealedCard] = useState(null)
+  const revealedRef = useRef(null)
   const activeTab = productTabs.find((tab) => tab.label === activeProductTab) ?? productTabs[0]
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.detail.id !== revealedRef.current) setRevealedCard(null)
+    }
+    window.addEventListener('card-reveal', handler)
+    return () => window.removeEventListener('card-reveal', handler)
+  }, [])
+
+  const handleCardEnter = useCallback((href) => {
+    revealedRef.current = href
+    setRevealedCard(href)
+    window.dispatchEvent(new CustomEvent('card-reveal', { detail: { id: href } }))
+  }, [])
 
   return (
     <section className="product-tabs-section" aria-label="Sneakers and kicks">
@@ -186,7 +202,7 @@ export default function ProductTabsSection() {
           {activeTab.products.map((product) => {
             const productPath = `/product/${product.href.split('/').pop()}`
             return (
-              <article className="shop-product-card" key={`${activeProductTab}-${product.name}`}>
+              <article className={`shop-product-card${revealedCard === product.href ? ' revealed' : ''}`} key={`${activeProductTab}-${product.name}`} data-product-id={product.href} onMouseEnter={() => handleCardEnter(product.href)}>
                 <Link to={productPath} className="shop-product-media">
                   <img src={product.image} alt={product.name} className="primary-image" />
                   <img src={product.hoverImage} alt="" aria-hidden="true" className="secondary-image" />

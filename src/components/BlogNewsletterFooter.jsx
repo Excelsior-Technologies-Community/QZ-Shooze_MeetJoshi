@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './BlogNewsletterFooter.css'
 
 const blogItems = [
@@ -18,13 +19,13 @@ function BlogSection() {
 
         <div className="bnf-grid">
           <article className="bnf-first">
-            <a href="#" className="bnf-first-image">
+            <Link to="/blog" className="bnf-first-image">
               <img src="https://qx-shooz.myshopify.com/cdn/shop/articles/blog-2.png?v=1731500928" alt="The Future of Footwear" />
               <div className="bnf-mask" />
-            </a>
+            </Link>
             <div className="bnf-first-content">
               <time>Oct 28 2024</time>
-              <h4><a href="#">The Future of Footwear: A Look Ahead</a></h4>
+              <h4><Link to="/blog">The Future of Footwear: A Look Ahead</Link></h4>
             </div>
           </article>
 
@@ -34,7 +35,7 @@ function BlogSection() {
                 <img src={`https://qx-shooz.myshopify.com/cdn/shop/articles/${b.img}`} alt={b.title} />
                 <div className="bnf-list-content">
                   <time>{b.date}</time>
-                  <h5><a href="#">{b.title}</a></h5>
+                  <h5><Link to="/blog">{b.title}</Link></h5>
                 </div>
               </article>
             ))}
@@ -69,15 +70,15 @@ function FooterSection() {
           <div>
             <h4>Information</h4>
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><Link to="/shops">About Us</Link></li>
+              <li><Link to="/shops">Privacy Policy</Link></li>
             </ul>
           </div>
           <div>
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">My Account</a></li>
-              <li><a href="#">My Cart</a></li>
+              <li><Link to="/shops">My Account</Link></li>
+              <li><Link to="/shops">My Cart</Link></li>
             </ul>
           </div>
           <div className="bnf-footer-center">
@@ -88,13 +89,13 @@ function FooterSection() {
           <div>
             <h4>Categories</h4>
             <ul>
-              <li><a href="#">Athletic Footwear</a></li>
+              <li><Link to="/shops">Athletic Footwear</Link></li>
             </ul>
           </div>
           <div>
             <h4>Support</h4>
             <ul>
-              <li><a href="#">Contact Us</a></li>
+              <li><Link to="/blog">Contact Us</Link></li>
             </ul>
           </div>
         </div>

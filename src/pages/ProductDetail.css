@@ -4,7 +4,7 @@
 }
 
 .product-detail-page > main {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .pd-container {
@@ -89,17 +89,19 @@
   border: 2px solid transparent;
   padding: 4px;
   cursor: pointer;
-  transition: border-color 0.2s ease, opacity 0.2s ease;
+  transition: border-color 0.3s ease, opacity 0.3s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   opacity: 0.5;
 }
 
 .pd-gallery-thumbs button:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(1.05);
 }
 
 .pd-gallery-thumbs button.is-active {
   border-color: var(--ink);
   opacity: 1;
+  transform: scale(1.02);
 }
 
 .pd-gallery-thumbs img {
@@ -124,7 +126,12 @@
   object-fit: contain;
   display: block;
   padding: 20px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pd-gallery-main:hover img {
+  transform: scale(1.08);
+  cursor: zoom-in;
 }
 
 .pd-badge {
@@ -133,7 +140,7 @@
   left: 12px;
   z-index: 2;
   padding: 4px 10px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -239,13 +246,34 @@
   letter-spacing: 0.06em;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-add-to-cart::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.pd-add-to-cart:hover:not(:disabled)::after {
+  transform: scaleX(1);
 }
 
 .pd-add-to-cart:hover:not(:disabled) {
   background: var(--accent-strong);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(174, 63, 79, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(174, 63, 79, 0.25);
+}
+
+.pd-add-to-cart:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(174, 63, 79, 0.15);
 }
 
 .pd-add-to-cart:disabled {
@@ -270,12 +298,18 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 
 .pd-buy-now:hover:not(:disabled) {
   background: transparent;
   color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pd-buy-now:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .pd-buy-now:disabled {
@@ -398,22 +432,33 @@
 }
 
 .pd-accordion-body {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .pd-accordion-body.open {
-  max-height: 120px;
-  padding: 0 0 14px;
+  grid-template-rows: 1fr;
+}
+
+.pd-accordion-body > * {
+  overflow: hidden;
 }
 
 .pd-accordion-body p {
   margin: 0;
+  padding: 0 0 14px;
   font-size: 13px;
   color: var(--muted);
   line-height: 1.7;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.pd-accordion-body.open p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Sale Points ── */
@@ -656,6 +701,7 @@
   border-bottom: 1px solid var(--line);
   margin-bottom: 20px;
   justify-content: flex-start;
+  position: relative;
 }
 
 .pd-tab-buttons button {
@@ -667,7 +713,7 @@
   color: var(--muted);
   border: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
   margin: 0 3rem -2px 0;
 }
 
@@ -692,16 +738,38 @@
   bottom: -1px;
   height: 2px;
   background: var(--ink);
+  animation: tabSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .pd-tab-buttons button:first-child.is-active::after {
   left: 0;
 }
 
+@keyframes tabSlideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .pd-tab-content {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.8;
+  animation: tabContentFade 0.35s ease;
+}
+
+@keyframes tabContentFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Related Products Sidebar ── */
@@ -794,6 +862,19 @@
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.01em;
+}
+
+/* ── Scroll Reveal ── */
+.pd-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pd-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .pd-section-label {
@@ -1049,11 +1130,12 @@
   font-size: 14px;
   border: none;
   color: var(--ink);
-  transition: color 0.2s ease;
+  transition: color 0.25s ease, padding-left 0.25s ease;
 }
 
 .pd-faq-q:hover {
   color: var(--accent);
+  padding-left: 4px;
 }
 
 .pd-faq-icon {
@@ -1075,6 +1157,20 @@
   line-height: 1.7;
   text-align: left;
   font-size: 14px;
+  animation: faqSlideDown 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes faqSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+  }
 }
 
 /* ── Sale Strip ── */
@@ -1160,7 +1256,7 @@
 }
 
 .pd-countdown-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1276,6 +1372,7 @@
   left: 6vh;
   background: #fff;
   width: 340px;
+  max-width: calc(100vw - 40px);
   opacity: 0;
   z-index: 999;
   border: 1px solid var(--line);
@@ -1409,6 +1506,10 @@
     width: min(100% - 24px, var(--container));
   }
 
+  .pd-explorer {
+    min-height: 260px;
+  }
+
   .pd-hero {
     padding-bottom: 32px;
     gap: 20px;
@@ -1457,12 +1558,6 @@
   .pd-service-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-  }
-
-  .pd-sale-strip-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px;
   }
 
   .pd-product-content {

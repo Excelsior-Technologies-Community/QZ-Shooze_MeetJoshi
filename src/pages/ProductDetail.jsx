@@ -31,6 +31,26 @@ function useStickyBar(ref) {
   return visible
 }
 
+function useScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.pd-reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+    )
+    els.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 function useCountdown(targetDate) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   useEffect(() => {
@@ -67,6 +87,7 @@ export default function ProductDetail() {
   const [recentlyOpen, setRecentlyOpen] = useState(false)
   const heroRef = useRef(null)
   const stickyVisible = useStickyBar(heroRef)
+  useScrollReveal()
   const { addItem, openCart } = useCart()
   const { hasItem, toggleItem } = useWishlist()
   const isWishlisted = product ? hasItem(product.id) : false
@@ -127,6 +148,9 @@ export default function ProductDetail() {
     .slice(0, 4)
 
   const recentlyViewed = [product, ...productsData.filter((item) => item.id !== product.id)].slice(0, 6)
+
+  const viewerCount = useMemo(() => Math.floor(Math.random() * 20 + 15), [])
+  const soldCount = useMemo(() => Math.floor(Math.random() * 15 + 20), [])
 
   const tabContent = {
     Description: `${product.name} brings ${product.tags?.slice(0, 3).join(', ') || 'everyday style'} into a comfortable silhouette made for repeat wear. The ${product.product_type.toLowerCase()} profile keeps the look polished while the supportive build makes it easy to move from daily errands to weekend plans.`,
@@ -237,7 +261,7 @@ export default function ProductDetail() {
             <div className="pd-wishlist-row">
               <button type="button" className={`pd-action-link${isWishlisted ? ' is-wishlisted' : ''}`} onClick={handleToggleWishlist}>
                 <svg viewBox="0 0 24 24" width="14" height="14" fill={isWishlisted ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                {isWishlisted ? 'Go to wishlist' : 'Go To Wishlist'}
+                {isWishlisted ? 'Go to wishlist' : 'Go to wishlist'}
               </button>
               <button type="button" className="pd-action-link">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -314,11 +338,11 @@ export default function ProductDetail() {
 
             <div className="pd-viewing">
               <span className="pd-dot" />
-              <span>&#128064; {Math.floor(Math.random() * 20 + 15)} customers are viewing this product</span>
+              <span>&#128064; {viewerCount} customers are viewing this product</span>
             </div>
 
             <div className="pd-sold-urgency">
-              &#128293; {Math.floor(Math.random() * 15 + 20)} sold in last 18 hours
+              &#128293; {soldCount} sold in last 18 hours
             </div>
 
             <div className="pd-shipping-progress">
@@ -388,7 +412,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className="pd-parallax" style={{ backgroundImage: `url(${fillerHero})` }}>
+        <section className="pd-parallax pd-reveal" style={{ backgroundImage: `url(${fillerHero})` }}>
           <div className="pd-parallax-inner">
             <div className="pd-parallax-content">
               <p className="pd-section-label">Effortless fashion, every day</p>
@@ -398,7 +422,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className="pd-container pd-story">
+        <section className="pd-container pd-story pd-reveal">
           <div className="pd-story-images">
             <img src={fillerPrimary} alt="Runner tying shoes" className="pd-story-main" />
             <img src={fillerAccent} alt="Athletic shoe detail" className="pd-story-accent" />
@@ -411,7 +435,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className="pd-benefits">
+        <section className="pd-benefits pd-reveal">
           <div className="pd-container pd-benefits-grid">
             <div className="pd-benefit">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -436,7 +460,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className="pd-explorer" style={{ backgroundImage: `url(${fillerHero})` }}>
+        <section className="pd-explorer pd-reveal" style={{ backgroundImage: `url(${fillerHero})` }}>
           <div className="pd-explorer-inner">
             <p>3000+ Reviews</p>
             <h2>For the Explorers.</h2>
@@ -444,7 +468,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className="pd-faq-section">
+        <section className="pd-faq-section pd-reveal">
           <div className="pd-container">
             <h2>FAQs</h2>
             <p className="pd-faq-sub">Have questions? We are here to help.</p>
@@ -495,7 +519,7 @@ export default function ProductDetail() {
           </section>
         )}
 
-        <section className="pd-container pd-recommendations">
+        <section className="pd-container pd-recommendations pd-reveal">
           <div className="pd-section-header">
             <h2>You may also like</h2>
           </div>
@@ -506,7 +530,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className="pd-container pd-recently">
+        <section className="pd-container pd-recently pd-reveal">
           <div className="pd-section-header">
             <h2>Recently viewed</h2>
           </div>
